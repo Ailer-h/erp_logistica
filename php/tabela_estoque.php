@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="col">
-                <button type="button" class="btn btn-warning fw-bold">
+                <button type="button" class="btn btn-warning fw-bold" data-bs-toggle="modal" data-bs-target="#modal_crud">
                     <i class="bi bi-plus-circle"></i>
                     Novo item
                 </button>
@@ -91,6 +91,52 @@
     </table>
     </div>
 
+    <!-- Modal do CRUD -->
+    <div class="modal fade" id="modal_crud" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="form" class="needs-validation" novalidate>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col">
+                                <small class="form-text align-start mb-1">
+                                    Nome do produto:
+                                </small>
+                            </div>
+                            <div class="col">
+                                <small class="form-text align-start mb-1">
+                                    Quantidade padrão no estoque:
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <input class="form-control" type="text" id="nome_prod">
+                                <div class="invalid-feedback">
+                                    Insira um nome.
+                                </div>
+                            </div>
+                            <div class="col">
+                                <input class="form-control" type="text" id="qtd_padrao">
+                                <div class="invalid-feedback">
+                                    Insira uma quantidade.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-warning">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <footer class="bg-body-tertiary text-center text-lg-start">
         <div class="text-center p-2" style="background-color: rgba(0, 0, 0, 0.05); font-size: .75em;">
