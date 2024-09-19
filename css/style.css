@@ -34,3 +34,41 @@ i{
     position: sticky;
     top: 0;
 }
+
+nav svg{
+
+    display: none;
+    width: 3em;
+    height: 3em;
+    fill: white;
+
+}
+
+.link-logout{
+
+    display: block;
+
+}
+
+img{
+    
+    width: 10em;
+    height: 10em; 
+
+}
+
+@media (min-width:1200px) {
+    
+    nav svg{
+
+        display: block;
+
+    }
+
+    .link-logout{
+
+        display: none;
+
+    }
+
+}
