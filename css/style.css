@@ -13,6 +13,14 @@ footer{
     width: 100vw;
 }
 
+form svg{
+
+    width: 7em;
+    height: 7em;
+    fill: white;
+
+}
+
 i{
     -webkit-text-stroke: 1px;
 }
