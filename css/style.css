@@ -12,3 +12,7 @@ footer{
     bottom: 0;
     width: 100vw;
 }
+
+i{
+    -webkit-text-stroke: 1px;
+}
