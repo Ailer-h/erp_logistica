@@ -24,3 +24,13 @@ form svg{
 i{
     -webkit-text-stroke: 1px;
 }
+
+.table-container{
+    max-height: 35em;
+    overflow-y: scroll;
+}
+
+.table-container th{
+    position: sticky;
+    top: 0;
+}

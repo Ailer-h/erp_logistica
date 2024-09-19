@@ -55,6 +55,14 @@
                 </select>
             </div>
             <div class="col">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Pesquisar..." aria-label="default input example">
+                    <button type="button" class="btn btn-warning fw-bold">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col">
                 <button type="button" class="btn btn-warning fw-bold">
                     <i class="bi bi-plus-circle"></i>
                     Novo item
@@ -63,9 +71,29 @@
         </div>
     </div>
 
+    <div class="table-container">
+    <table class="table table-striped text-center">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Qtd. em Estoque</th>
+                <th scope="col">Porcentagem</th>
+                <th scope="col">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>Farinha de Trigo</td><td>100</td><td>WORK IN PROGRESS</td><td>wip</td></tr>
+            <tr><td>1</td><td>Farinha de Trigo</td><td>100</td><td>WORK IN PROGRESS</td><td>wip</td></tr>
+            <tr><td>1</td><td>Farinha de Trigo</td><td>100</td><td>WORK IN PROGRESS</td><td>wip</td></tr>
+            <tr><td>1</td><td>Farinha de Trigo</td><td>100</td><td>WORK IN PROGRESS</td><td>wip</td></tr>
+        </tbody>
+    </table>
+    </div>
+
 
     <footer class="bg-body-tertiary text-center text-lg-start">
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05); font-size: .75em;">
+        <div class="text-center p-2" style="background-color: rgba(0, 0, 0, 0.05); font-size: .75em;">
             by Henrique Ailer & Murilo Martins. <br>
             <a class="text-body" style="font-size: .75em;" href="https://github.com/Ailer-h/erp_logistica">github.com</a>
         </div>
