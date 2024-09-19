@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 19-Set-2024 às 11:16
+-- Tempo de geração: 19-Set-2024 às 14:12
 -- Versão do servidor: 8.0.31
 -- versão do PHP: 8.0.26
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `erp_logistica`
 --
+CREATE DATABASE IF NOT EXISTS `erp_logistica` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+USE `erp_logistica`;
 
 -- --------------------------------------------------------
 
@@ -34,7 +36,14 @@ CREATE TABLE IF NOT EXISTS `empresa` (
   `email_empresa` varchar(50) NOT NULL,
   `senha_empresa` varchar(50) NOT NULL,
   PRIMARY KEY (`id_empresa`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Extraindo dados da tabela `empresa`
+--
+
+INSERT INTO `empresa` (`id_empresa`, `nome_empresa`, `email_empresa`, `senha_empresa`) VALUES
+(1, 'Admin', 'adm@adm.com', 'adm123');
 
 -- --------------------------------------------------------
 
