@@ -12,11 +12,11 @@
     }
 
     function getProgressBarColor($percentage){
-        if($percentage < 25){
+        if($percentage <= 25){
             return "danger";
         }
         
-        if($percentage < 50){
+        if($percentage <= 50){
             return "warning";
         }
 
@@ -30,11 +30,12 @@
     
     session_start();
     $search = $_POST['search'];
+    $filtros = $_POST['filtros'];
     $empresa = $_SESSION['id_empresa'];
     
     include "mysqlconecta.php";
 
-    $query = mysqli_query($conexao, "select id_materiaPrima,nome_produto,qtd_padrao,qtd_estoque,unidade_medida from estoque where id_empresa = $empresa and nome_produto like '%$search%'");
+    $query = mysqli_query($conexao, "select id_materiaPrima,nome_produto,qtd_padrao,qtd_estoque,unidade_medida from estoque where id_empresa = $empresa and nome_produto like '%$search%' $filtros");
 
     while($infos_estoque = mysqli_fetch_array($query)){
 

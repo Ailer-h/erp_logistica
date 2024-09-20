@@ -1,8 +1,8 @@
 const forms = document.querySelectorAll('.needs-validation')
-const modal_add = new bootstrap.Modal('#modal_crud');
+const modal_add = new bootstrap.Modal('#modal_add');
 
 document.addEventListener('DOMContentLoaded', function(){
-    table('');
+    table('searchbar');
 });
 
   // Loop over them and prevent submission
@@ -16,7 +16,7 @@ Array.from(forms).forEach(form => {
     form.classList.add('was-validated')
 }, false)});
 
-document.getElementById('form').addEventListener('submit', event => {
+document.getElementById('form_add').addEventListener('submit', event => {
    
     event.preventDefault();
 
@@ -47,7 +47,7 @@ function clear_form(){
     document.getElementById('nome_prod').value = '';
     document.getElementById('qtd_padrao').value = '';
     document.getElementById('unidade_medida').value = '-1';
-    document.getElementById('form').classList.remove('was-validated');
+    document.getElementById('form_add').classList.remove('was-validated');
 }
 
 function int_js(valor, input){
@@ -58,12 +58,37 @@ function int_js(valor, input){
 
 }
 
-function table(search){
+function getFilters(){
+
+    let estado = document.getElementById('estado').value;
+
+    if(estado.length > 0){
+        
+        if(estado == 'falta'){
+            console.log('falta')
+            return 'and ((100 * qtd_estoque) / qtd_padrao) <= 25';
+        
+        }
+        if(estado == 'em_estoque'){
+            console.log('em_estoque')
+            return 'and ((100 * qtd_estoque) / qtd_padrao) > 25';
+
+        }
+    }
+    console.log('todos')
+    return '';
+}
+
+function table(searchbar_id){
+
+    let search = document.getElementById(searchbar_id).value;
+
     $.ajax({
         url: "utilities/consultar_estoque.php",
         method: "post",
         data: {
-            search: search
+            search: search,
+            filtros: getFilters()
         },
         success: function(data){
             $('#table').html(data)

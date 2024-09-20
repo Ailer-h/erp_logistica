@@ -46,14 +46,10 @@
                 <h1>Estoque</h1>
             </div>
             <div class="col">
-                <input class="form-control" type="text" placeholder="dd/mm/aaaa" name="filter-date" id="filter-date" aria-label="default input example">
-            </div>
-            <div class="col">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected hidden>Estado no estoque</option>
-                    <option value="1">Todos</option>
-                    <option value="2">Em falta</option>
-                    <option value="3">Em estoque</option>
+                <select class="form-select" id='estado' aria-label="Default select example" oninput="table('searchbar')">
+                    <option value="todos" selected>Todos</option>
+                    <option value="falta">Em falta</option>
+                    <option value="em_estoque">Em estoque</option>
                 </select>
             </div>
             <div class="col">
@@ -61,11 +57,11 @@
                     <span class="input-group-text" id="inputGroup-sizing-default">
                         <i class="bi bi-search"></i>
                     </span>
-                    <input class="form-control" type="text" placeholder="Pesquisar..." aria-label="default input example" oninput="table(this.value)">
+                    <input class="form-control" type="text" placeholder="Pesquisar..." id='searchbar' aria-label="default input example" oninput="table('searchbar')">
                 </div>
             </div>
             <div class="col">
-                <button type="button" class="btn btn-warning fw-bold" data-bs-toggle="modal" data-bs-target="#modal_crud">
+                <button type="button" class="btn btn-warning fw-bold" data-bs-toggle="modal" data-bs-target="#modal_add">
                     <i class="bi bi-plus-circle bold"></i>
                     Novo item
                 </button>
@@ -88,15 +84,15 @@
     </table>
     </div>
 
-    <!-- Modal do CRUD -->
-    <div class="modal fade" id="modal_crud" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal de novo item -->
+    <div class="modal fade" id="modal_add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Novo Item</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="clear_form()"></button>
                 </div>
-                <form id="form" class="needs-validation" novalidate>
+                <form id="form_add" class="needs-validation" novalidate>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col">
@@ -161,14 +157,5 @@
         </div>
     </footer>
 </body>
-<script>
-    //Adicionando a mascara na data
-    new Cleave('#filter-date', {
-        date: true,
-        delimiter: "/",
-        datePattern: ['d', 'm', 'Y']
-    });
-</script>
 <script src="../js/estoque.js"></script>
-
 </html>
