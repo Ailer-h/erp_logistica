@@ -39,6 +39,7 @@
     while($infos_estoque = mysqli_fetch_array($query)){
 
         $percentage = getPercentageShow($infos_estoque[3], $infos_estoque[2]);
+        $percentage_real = getPercentageReal($infos_estoque[3], $infos_estoque[2]);
         $color = getProgressBarColor($percentage);
 
         echo "<tr>";
@@ -50,6 +51,7 @@
             <div class='progress' role='progressbar' style='height: 15px'>
                 <div class='progress-bar bg-$color' style='width: $percentage%'></div>
             </div>
+            $percentage_real%
         </td>";
         echo "<td class='d-flex justify-content-evenly g-2'>
             <button type='button' class='btn btn-warning fw-bold' title='Deletar'>
