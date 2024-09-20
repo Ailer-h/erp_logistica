@@ -30,4 +30,6 @@
 
         echo "</tr>";
     }
+
+    mysqli_close($conexao);
 ?>

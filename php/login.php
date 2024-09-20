@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
 
       session_start();
 
-      $_SESSION['Empresa'] = $infos[2];
+      $_SESSION['id_empresa'] = $infos[2];
 
       header("Location: dashboard.php");
       

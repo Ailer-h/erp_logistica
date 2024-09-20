@@ -15,13 +15,27 @@ document.getElementById('form').addEventListener('submit', event => {
    
     event.preventDefault();
 
-    let nome_input = document.getElementById('nome_prod');
-    let qtd_input = document.getElementById('qtd_padrao');
+    let nome = document.getElementById('nome_prod').value.toString();
+    let qtd = document.getElementById('qtd_padrao').value.toString();
 
-    if(nome_input.value.lenght > 0 && qtd_input.value.lenght > 0){
+    console.log(nome.length)
+    console.log(qtd.length)
+
+    if(nome.length > 0 && qtd.length > 0){
         
+        $.ajax({
+            url: "utilities/novo_item_estoque.php",
+            method: "post",
+            data: {
+                nome: nome,
+                qtd_padrao: qtd
+            },
+            success: function(){
+                const modal = new bootstrap.Modal('#modal_crud');
+                modal.hide();
+            }
+        })
     }
-    
 });
 
 function int_js(valor, input){

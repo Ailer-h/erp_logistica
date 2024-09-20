@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `estoque` (
   `id_empresa` int NOT NULL,
   `nome_produto` varchar(100) NOT NULL,
   `qtd_padrao` int NOT NULL,
-  `qtd_estoque` int NOT NULL,
+  `qtd_estoque` int NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_materiaPrima`),
   KEY `id_empresa` (`id_empresa`)
 );
