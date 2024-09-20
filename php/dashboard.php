@@ -45,7 +45,7 @@
                 <div class="card-body">
                     <img src="../images/notas.png">
                 </div>
-                <a href="#" class="btn btn-warning m-3 fw-bold">Ver Notas</a>
+                <a href="tabela_notas.php" class="btn btn-warning m-3 fw-bold">Ver Notas</a>
             </div>
             <div class="card text-center" style="width: 20em;">
                 <h5 class="card-title text-center fs-3 pt-2">Estoque</h5>
@@ -59,7 +59,7 @@
                 <div class="card-body">
                     <img src="../images/registros.png">
                 </div>
-                <a href="#" class="btn btn-warning m-3 fw-bold">Ver Registros</a>
+                <a href="tabela_registro.php" class="btn btn-warning m-3 fw-bold">Ver Registros</a>
             </div>
         </div>
         <footer class="bg-body-tertiary text-center text-lg-start">
