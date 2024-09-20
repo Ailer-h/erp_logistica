@@ -44,10 +44,10 @@
 
         echo "<tr>";
 
-        echo "<td>$infos_estoque[0]</td>";
-        echo "<td>$infos_estoque[1]</td>";
-        echo "<td>$infos_estoque[3] $infos_estoque[4]</td>";
-        echo "<td>
+        echo "<td class='align-middle'>$infos_estoque[0]</td>";
+        echo "<td class='align-middle'>$infos_estoque[1]</td>";
+        echo "<td class='align-middle'>$infos_estoque[3] $infos_estoque[4]</td>";
+        echo "<td class='align-middle'>
             <div class='progress' role='progressbar' style='height: 15px'>
                 <div class='progress-bar bg-$color' style='width: $percentage%'></div>
             </div>
