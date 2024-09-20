@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>Estoque</title>
 </head>
 
@@ -56,10 +57,10 @@
             </div>
             <div class="col">
                 <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Pesquisar..." aria-label="default input example">
-                    <button type="button" class="btn btn-warning fw-bold">
+                    <span class="input-group-text" id="inputGroup-sizing-default">
                         <i class="bi bi-search"></i>
-                    </button>
+                    </span>
+                    <input class="form-control" type="text" placeholder="Pesquisar..." aria-label="default input example">
                 </div>
             </div>
             <div class="col">
@@ -116,13 +117,13 @@
 
                         <div class="row">
                             <div class="col">
-                                <input class="form-control" type="text" id="nome_prod">
+                                <input class="form-control" type="text" id="nome_prod" required>
                                 <div class="invalid-feedback">
                                     Insira um nome.
                                 </div>
                             </div>
                             <div class="col">
-                                <input class="form-control" type="text" id="qtd_padrao">
+                                <input class="form-control" type="text" id="qtd_padrao" oninput="int_js(this.value, this)" required>
                                 <div class="invalid-feedback">
                                     Insira uma quantidade.
                                 </div>
@@ -131,7 +132,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-warning">Salvar</button>
+                        <button type="submit" class="btn btn-warning">Salvar</button>
                     </div>
                 </form>
             </div>
@@ -153,5 +154,6 @@
         datePattern: ['d', 'm', 'Y']
     });
 </script>
+<script src="../js/estoque.js"></script>
 
 </html>

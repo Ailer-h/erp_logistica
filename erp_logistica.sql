@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `empresa` (
   `email_empresa` varchar(50) NOT NULL,
   `senha_empresa` varchar(50) NOT NULL,
   PRIMARY KEY (`id_empresa`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `empresa`
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `estoque` (
   `qtd_estoque` int NOT NULL,
   PRIMARY KEY (`id_materiaPrima`),
   KEY `id_empresa` (`id_empresa`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `nota` (
   `data_nota` date DEFAULT NULL,
   PRIMARY KEY (`id_nota`),
   KEY `id_empresa` (`id_empresa`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `registro` (
   PRIMARY KEY (`id_registro`),
   KEY `id_nota` (`id_nota`),
   KEY `id_empresa` (`id_empresa`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
