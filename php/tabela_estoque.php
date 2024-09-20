@@ -84,10 +84,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr><td>1</td><td>Farinha de Trigo</td><td>100</td><td>WORK IN PROGRESS</td><td>wip</td></tr>
-            <tr><td>1</td><td>Farinha de Trigo</td><td>100</td><td>WORK IN PROGRESS</td><td>wip</td></tr>
-            <tr><td>1</td><td>Farinha de Trigo</td><td>100</td><td>WORK IN PROGRESS</td><td>wip</td></tr>
-            <tr><td>1</td><td>Farinha de Trigo</td><td>100</td><td>WORK IN PROGRESS</td><td>wip</td></tr>
+            
+            <?php
+            
+                include "printEstoque.php";
+                
+            ?>
+        
         </tbody>
     </table>
     </div>
