@@ -21,7 +21,7 @@ form svg{
 
 }
 
-i{
+i.bold{
     -webkit-text-stroke: 1px;
 }
 

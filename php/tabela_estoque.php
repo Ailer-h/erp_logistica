@@ -61,12 +61,12 @@
                     <span class="input-group-text" id="inputGroup-sizing-default">
                         <i class="bi bi-search"></i>
                     </span>
-                    <input class="form-control" type="text" placeholder="Pesquisar..." aria-label="default input example">
+                    <input class="form-control" type="text" placeholder="Pesquisar..." aria-label="default input example" oninput="table(this.value)">
                 </div>
             </div>
             <div class="col">
                 <button type="button" class="btn btn-warning fw-bold" data-bs-toggle="modal" data-bs-target="#modal_crud">
-                    <i class="bi bi-plus-circle"></i>
+                    <i class="bi bi-plus-circle bold"></i>
                     Novo item
                 </button>
             </div>
@@ -79,14 +79,12 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nome</th>
-                <th scope="col">Qtd. em Estoque</th>
-                <th scope="col">Porcentagem</th>
+                <th scope="col">Quantidade em estoque</th>
+                <th scope="col">Estado do estoque</th>
                 <th scope="col">Ações</th>
             </tr>
         </thead>
-        <tbody>
-        
-        </tbody>
+        <tbody id="table"></tbody>
     </table>
     </div>
 
@@ -96,7 +94,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Novo Item</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="clear_form()"></button>
                 </div>
                 <form id="form" class="needs-validation" novalidate>
                     <div class="modal-body">
@@ -108,7 +106,12 @@
                             </div>
                             <div class="col">
                                 <small class="form-text align-start mb-1">
-                                    Quantidade padrão no estoque:
+                                    Quantidade maxima:
+                                </small>
+                            </div>
+                            <div class="col">
+                            <small class="form-text align-start mb-1">
+                                    Unidade de medida:
                                 </small>
                             </div>
                         </div>
@@ -126,10 +129,24 @@
                                     Insira uma quantidade.
                                 </div>
                             </div>
+                            <div class="col">
+                                <select class="form-select" id='unidade_medida' aria-label="Default select example" required>
+                                    <option selected disabled hidden value="">Choose...</option>
+                                    <option value="kg">kg</option>
+                                    <option value="g">g</option>
+                                    <option value="l">l</option>
+                                    <option value="ml">ml</option>
+                                    <option value="unidades">unidade</option>
+                                    <option value="duzias">duzia</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Insira a unidade de medida.
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clear_form()">Cancelar</button>
                         <button type="submit" class="btn btn-warning">Salvar</button>
                     </div>
                 </form>
