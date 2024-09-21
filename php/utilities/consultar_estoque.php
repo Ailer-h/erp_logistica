@@ -55,10 +55,10 @@
             $percentage_real%
         </td>";
         echo "<td class='d-flex justify-content-evenly g-2'>
-            <button type='button' class='btn btn-warning fw-bold' onclick='showDeleteModal($infos_estoque[0], \"Delete\")' title='Deletar'>
+            <button type='button' class='btn btn-warning fw-bold' onclick='showDeleteModal($infos_estoque[0])' title='Deletar'>
                 <i class='bi bi-trash3-fill'></i>
             </button>
-            <button type='button' class='btn btn-warning fw-bold' onclick='showEditModal($infos_estoque[0], \"Edit\")' title='Editar'>
+            <button type='button' class='btn btn-warning fw-bold' onclick='showEditModal($infos_estoque[0])' title='Editar'>
                 <i class='bi bi-pencil-fill'></i>
             </button>
             <button type='button' class='btn btn-warning fw-bold'  title='Dar baixa'>

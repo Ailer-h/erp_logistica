@@ -21,7 +21,7 @@
         echo "<td class='align-middle'>$date</td>";
         echo "<td class='align-middle'>$infos_nota[6]</td>";
         echo "<td class='d-flex justify-content-evenly g-2'>
-            <button type='button' class='btn btn-warning fw-bold' onclick='showEditModal($infos_estoque[0], \"Edit\")' title='Editar'>
+            <button type='button' class='btn btn-warning fw-bold' onclick='showEditModal($infos_nota[0])' title='Editar'>
                 <i class='bi bi-pencil-fill'></i>
             </button>
         </td>";

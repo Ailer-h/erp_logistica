@@ -163,7 +163,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-warning">Salvar</button>
+                        <button type="submit" class="btn btn-warning">Editar</button>
                     </div>
                 </form>
             </div>

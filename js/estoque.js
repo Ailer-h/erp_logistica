@@ -137,7 +137,7 @@ function showEditModal(id_materiaPrima){
     });
 
 }
-function showDeleteModal(id_materiaPrima, button){
+function showDeleteModal(id_materiaPrima){
     
     modal_delete.show();
 

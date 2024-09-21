@@ -79,7 +79,7 @@
             </div>
             <div class="col">
                 <div class="input-group">
-                <span class="input-group-text" id="inputGroup-sizing-default">
+                    <span class="input-group-text" id="inputGroup-sizing-default">
                         <i class="bi bi-search"></i>
                     </span>
                     <input class="form-control" type="text" placeholder="Pesquisar..." id='searchbar' aria-label="default input example" oninput="table('searchbar')">
@@ -136,7 +136,7 @@
 
                         <div class="row">
                             <div class="col">
-                                <select class="form-select" id="nome_produto" aria-label="Default select example" required>
+                                <select class="form-select" id="nome_produto" aria-label="Default select example" oninput="change_input_sufix(this.value    )" required>
                                     <option selected hidden disabled value="">Produto...</option>
                                     <?php
 
@@ -149,7 +149,13 @@
                                 </div>
                             </div>
                             <div class="col">
-                                <input class="form-control" type="text" id="qtd_requisitada" oninput="int_js(this.value, this)" required>
+                                <div class="input-group">
+                                    <input class="form-control" type="text" id="qtd_requisitada" oninput="int_js(this.value, this)" required>
+                                    <span class="input-group-text" id="span_unidade_medida">
+                                        ...
+                                    </span>
+                                </div>
+
                                 <div class="invalid-feedback">
                                     Insira uma quantidade.
                                 </div>
@@ -175,6 +181,25 @@
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-warning">Salvar</button>
                     </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Edit -->
+    <div class="modal fade" id="modal_edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Editar nota</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="form_edit" class="needs-validation" novalidate>
+                    <div class="modal-body" id="modalEdit_body">
+                    </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-warning">Editar</button>
+                        </div>
                 </form>
             </div>
         </div>

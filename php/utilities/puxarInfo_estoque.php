@@ -6,9 +6,12 @@
 
     $acao = $_POST["acao"];
 
+    $disabled = $acao == "delete" ? "disabled" : "";
+
+
     $infos_estoque = mysqli_fetch_array(mysqli_query($conexao, "SELECT nome_produto, qtd_padrao, unidade_medida FROM estoque WHERE id_materiaPrima = '$id'"));
 
-    echo "<div class='row'>
+        echo "<div class='row'>
         <div class='col'>
             <small class='form-text align-start mb-1'>
                 Nome do produto:
@@ -28,19 +31,19 @@
 
     <div class='row'>
         <div class='col'>
-            <input class='form-control' type='text' id='nome_prod_$acao' value='$infos_estoque[0]' required>
+            <input class='form-control' type='text' id='nome_prod_$acao' value='$infos_estoque[0]' $disabled required>
             <div class='invalid-feedback'>
                 Insira um nome.
             </div>
         </div>
         <div class='col'>
-            <input class='form-control' type='text' id='qtd_padrao_$acao' oninput='int_js(this.value, this)' value='$infos_estoque[1]' required>
+            <input class='form-control' type='text' id='qtd_padrao_$acao' oninput='int_js(this.value, this)' value='$infos_estoque[1]' $disabled required>
             <div class='invalid-feedback'>
                 Insira uma quantidade.
             </div>
         </div>
         <div class='col'>
-            <select class='form-select' id='unidade_medida_$acao' aria-label='Default select example' required>
+            <select class='form-select' id='unidade_medida_$acao' aria-label='Default select example' $disabled required>
                 <option value='kg'>kg</option>
                 <option value='g'>g</option>
                 <option value='l'>l</option>
@@ -59,5 +62,6 @@
             </div>
         </div>
     </div>";
+
 
 ?>

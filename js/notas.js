@@ -1,5 +1,6 @@
 const forms = document.querySelectorAll('.needs-validation');
 const modal_add = new bootstrap.Modal('#modal_add')
+const modal_edit = new bootstrap.Modal('#modal_edit')
 
 document.addEventListener('DOMContentLoaded', function(){
     table('searchbar');
@@ -44,11 +45,19 @@ document.getElementById('form_add').addEventListener('submit', event =>{
 });
 
 function clear_form_add(){
+    
     document.getElementById('nome_produto').value = '';
     document.getElementById('qtd_requisitada').value = '';
     document.getElementById('data_chegada').value = '';
 
     document.getElementById('form_add').classList.remove('was-validated');
+
+}
+
+function clear_form_edit(){
+
+    document.getElementById('form_edit').classList.remove('was-validated');
+    document.getElementById('modalEdit_body').innerHTML = '';
 
 }
 
