@@ -79,7 +79,7 @@
             </div>
             <div class="col">
                 <div class="input-group">
-                <span class="input-group-text" id="inputGroup-sizing-default">
+                    <span class="input-group-text" id="inputGroup-sizing-default">
                         <i class="bi bi-search"></i>
                     </span>
                     <input class="form-control" type="text" placeholder="Pesquisar..." id='searchbar' aria-label="default input example" oninput="table('searchbar')">
@@ -136,7 +136,7 @@
 
                         <div class="row">
                             <div class="col">
-                                <select class="form-select" id="nome_produto" aria-label="Default select example" required>
+                                <select class="form-select" id="nome_produto" aria-label="Default select example" oninput="change_input_sufix(this.value    )" required>
                                     <option selected hidden disabled value="">Produto...</option>
                                     <?php
 
@@ -149,7 +149,13 @@
                                 </div>
                             </div>
                             <div class="col">
-                                <input class="form-control" type="text" id="qtd_requisitada" oninput="int_js(this.value, this)" required>
+                                <div class="input-group">
+                                    <input class="form-control" type="text" id="qtd_requisitada" oninput="int_js(this.value, this)" required>
+                                    <span class="input-group-text" id="span_unidade_medida">
+                                        ...
+                                    </span>
+                                </div>
+
                                 <div class="invalid-feedback">
                                     Insira uma quantidade.
                                 </div>

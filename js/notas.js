@@ -103,3 +103,16 @@ function int_js(valor, input){
     document.getElementById(input.id).value = valor;
 
 }
+
+function change_input_sufix(id_materiaPrima){
+    $.ajax({
+        url: "utilities/get_unidadeMedida.php",
+        method: "post",
+        data: {
+            id_materiaPrima: id_materiaPrima
+        },
+        success: function(data){
+            $('#span_unidade_medida').html(data);
+        }
+    });
+}
