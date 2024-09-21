@@ -3,7 +3,7 @@
 function get_selected_option($option){
     
     if($option == "kg"){
-        echo"<option value='kg' slected>kg</option>";
+        echo"<option value='kg' selected>kg</option>";
         echo"<option value='g'>g</option>";
         echo"<option value='l'>l</option>";
         echo"<option value='ml'>ml</option>";
@@ -14,7 +14,7 @@ function get_selected_option($option){
 
     if($option == "g"){
         echo"<option value='kg'>kg</option>";
-        echo"<option value='g' slected>g</option>";
+        echo"<option value='g' selected>g</option>";
         echo"<option value='l'>l</option>";
         echo"<option value='ml'>ml</option>";
         echo"<option value='unidades'>unidade</option>";
@@ -25,7 +25,7 @@ function get_selected_option($option){
     if($option == "l"){
         echo"<option value='kg'>kg</option>";
         echo"<option value='g'>g</option>";
-        echo"<option value='l' slected>l</option>";
+        echo"<option value='l' selected>l</option>";
         echo"<option value='ml'>ml</option>";
         echo"<option value='unidades'>unidade</option>";
         echo"<option value='duzias'>duzia</option>";
@@ -36,7 +36,7 @@ function get_selected_option($option){
         echo"<option value='kg'>kg</option>";
         echo"<option value='g'>g</option>";
         echo"<option value='l'>l</option>";
-        echo"<option value='ml' slected>ml</option>";
+        echo"<option value='ml' selected>ml</option>";
         echo"<option value='unidades'>unidade</option>";
         echo"<option value='duzias'>duzia</option>";
         return;
@@ -47,7 +47,7 @@ function get_selected_option($option){
         echo"<option value='g'>g</option>";
         echo"<option value='l'>l</option>";
         echo"<option value='ml'>ml</option>";
-        echo"<option value='unidades' slected>unidade</option>";
+        echo"<option value='unidades' selected>unidade</option>";
         echo"<option value='duzias'>duzia</option>";
         return;
     }
@@ -58,7 +58,7 @@ function get_selected_option($option){
         echo"<option value='l'>l</option>";
         echo"<option value='ml'>ml</option>";
         echo"<option value='unidades'>unidade</option>";
-        echo"<option value='duzias' slected>duzia</option>";
+        echo"<option value='duzias' selected>duzia</option>";
         return;
     }
 
