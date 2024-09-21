@@ -6,7 +6,8 @@
 
     $id = $_SESSION['id_empresa'];
     $search = $_POST['search'];
-    $query = mysqli_query($conexao, "select nt.id_nota,nt.produto_nota,nt.qtd_produto,nt.data_nota, es.unidade_medida, es.nome_produto, nt.estado_nota FROM nota nt, estoque es where nt.id_empresa = 1 and nt.produto_nota = es.id_materiaPrima and es.nome_produto like '%$search%';");
+    $filter = $_POST['filtros'];
+    $query = mysqli_query($conexao, "select nt.id_nota,nt.produto_nota,nt.qtd_produto,nt.data_nota, es.unidade_medida, es.nome_produto, nt.estado_nota FROM nota nt, estoque es where nt.id_empresa = 1 and nt.produto_nota = es.id_materiaPrima and es.nome_produto like '%$search%' $filter;");
 
     while($infos_nota = mysqli_fetch_array($query)){
 

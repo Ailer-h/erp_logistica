@@ -32,7 +32,7 @@ document.getElementById('form_add').addEventListener('submit', event =>{
                 qtd: qtd,
                 data: data_chegada
             },
-            success: function(data){
+            success: function(){
                 table('searchbar');
                 clear_form_add();
                 modal_add.hide();
@@ -49,6 +49,34 @@ function clear_form_add(){
     document.getElementById('data_chegada').value = '';
 
     document.getElementById('form_add').classList.remove('was-validated');
+
+}
+
+function getDateFilter(){
+
+    let data_filtro = document.getElementById('filter-date').value;
+    
+    if(data_filtro.length == 10){
+        data_filtro = data_filtro.split('/').reverse().join('-');
+        return ` and nt.data_nota = '${data_filtro}'`;
+
+    }
+
+    return ""
+    
+}
+
+function getStatusFilter(){
+
+    let estado = document.getElementById('estado').value;
+
+    if(estado.length > 0 && estado != "todos"){
+        return ` and nt.estado_nota = '${estado}'`;
+    
+    }
+
+    return "";
+
 }
 
 function table(searchbar_id){
@@ -60,7 +88,7 @@ function table(searchbar_id){
         method: "post",
         data: {
             search: search,
-            filtros: ""
+            filtros: getDateFilter() + getStatusFilter()
         },
         success: function(data){
             $('#table').html(data)

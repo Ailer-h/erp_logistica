@@ -1,19 +1,21 @@
 <?php
+    session_start();
 
-function getNamesEstoque()
-{
+    function getNamesEstoque(){
 
-    include "utilities/mysqlconecta.php";
 
-    $query = mysqli_query($conexao, "select nome_produto, id_materiaPrima from estoque where estado != 'deletado'");
+        include "utilities/mysqlconecta.php";
+        $id_empresa = $_SESSION['id_empresa'];
 
-    while ($produto = mysqli_fetch_array($query)) {
+        $query = mysqli_query($conexao, "select nome_produto, id_materiaPrima from estoque where estado != 'deletado' and id_empresa = $id_empresa");
 
-        echo "<option value='$produto[1]'>$produto[0]</option>";
+        while ($produto = mysqli_fetch_array($query)) {
+
+            echo "<option value='$produto[1]'>$produto[0]</option>";
+
+        }
 
     }
-
-}
 
 ?>
 
@@ -65,10 +67,16 @@ function getNamesEstoque()
                 <h1>Notas</h1>
             </div>
             <div class="col">
-                <input class="form-control" type="text" placeholder="dd/mm/aaaa" name="filter-date" id="filter-date"
-                    aria-label="default input example">
+                <input class="form-control" type="text" placeholder="dd/mm/aaaa" name="filter-date" id="filter-date" aria-label="default input example" oninput="table('searchbar')">
             </div>
-
+            <div class="col">
+                <select class="form-select" id='estado' aria-label="Default select example" oninput="table('searchbar')">
+                    <option value="todos" selected>Todos os estados</option>
+                    <option value="Requisitada">Requisitado</option>
+                    <option value="Atendida">Atendida</option>
+                    <option value="Cancelada">Cancelada</option>
+                </select>
+            </div>
             <div class="col">
                 <div class="input-group">
                 <span class="input-group-text" id="inputGroup-sizing-default">
