@@ -64,13 +64,58 @@ function get_selected_option($option){
 
 }
 
-    include "mysqlconecta.php";
 
-    $id = $_POST["id"];
+include "mysqlconecta.php";
+
+$id = $_POST["id"];
+
+$botao = $_POST["tipoBotao"];
 
     $infos_estoque = mysqli_fetch_array(mysqli_query($conexao, "SELECT nome_produto, qtd_padrao, unidade_medida FROM estoque WHERE id_materiaPrima = '$id'"));
 
-    echo "<div class='row'>
+    if($botao == 'Delete'){
+
+        echo "<div class='row'>
+        <div class='col'>
+            <small class='form-text align-start mb-1'>
+                Nome do produto:
+            </small>
+        </div>
+        <div class='col'>
+            <small class='form-text align-start mb-1'>
+                Quantidade maxima:
+            </small>
+        </div>
+        <div class='col'>
+        <small class='form-text align-start mb-1'>
+                Unidade de medida:
+            </small>
+        </div>
+    </div>
+
+    <div class='row'>
+        <div class='col'>
+            <input class='form-control' type='text' id='nome_prod_delete' value='$infos_estoque[0]' disabled>
+            
+        </div>
+        <div class='col'>
+            <input class='form-control' type='text' id='qtd_padrao_delete' oninput='int_js(this.value, this)' value='$infos_estoque[1]' disabled>
+            
+        </div>
+        <div class='col'>
+            <select class='form-select' id='unidade_medida_delete' aria-label='Default select example' disabled>";
+
+                get_selected_option($infos_estoque[2]);
+
+            echo "</select>
+            <input type='hidden' value='$id' id='id_delete'>                                
+            
+        </div>
+    </div>";
+
+    }else{
+    
+        echo "<div class='row'>
                             <div class='col'>
                                 <small class='form-text align-start mb-1'>
                                     Nome do produto:
@@ -107,9 +152,10 @@ function get_selected_option($option){
                                     get_selected_option($infos_estoque[2]);
 
                                 echo "</select>
-                                <div class='invalid-feedback'>
+                                <input type='hidden' value='$id' id='id_edit'>                                <div class='invalid-feedback'>
                                     Insira a unidade de medida.
                                 </div>
                             </div>
                         </div>";
+    }
 ?>

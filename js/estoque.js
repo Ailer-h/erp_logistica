@@ -1,6 +1,7 @@
 const forms = document.querySelectorAll('.needs-validation')
 const modal_add = new bootstrap.Modal('#modal_add');
 const modal_edit = new bootstrap.Modal('#modal_edit');
+const modal_delete = new bootstrap.Modal('#modal_delete');
 
 document.addEventListener('DOMContentLoaded', function(){
     table('searchbar');
@@ -37,18 +38,39 @@ document.getElementById('form_add').addEventListener('submit', event => {
             },
             success: function(){
                 modal_add.hide();
-                clear_form();
+                clear_form_add();
                 table('searchbar');
             }
         })
     }
 });
 
-function clear_form(){
+function clear_form_add(){
+
     document.getElementById('nome_prod').value = '';
     document.getElementById('qtd_padrao').value = '';
     document.getElementById('unidade_medida').value = '-1';
     document.getElementById('form_add').classList.remove('was-validated');
+
+}
+
+function clear_form_edit(){
+
+    document.getElementById('nome_prod_edit').value = '';
+    document.getElementById('qtd_padrao_edit').value = '';
+    document.getElementById('unidade_medida-edit').value = '-1';
+    document.getElementById('id_edit').value = '';
+    document.getElementById('form_edit').classList.remove('was-validated');
+
+}
+function clear_form_delete(){
+
+    document.getElementById('nome_prod_delete').value = '';
+    document.getElementById('qtd_padrao_delete').value = '';
+    document.getElementById('unidade_medida-delete').value = '-1';
+    document.getElementById('id_delete').value = '';
+    document.getElementById('form_delete').classList.remove('was-validated');
+
 }
 
 function int_js(valor, input){
@@ -93,6 +115,7 @@ function table(searchbar_id){
         }
     });
 }
+
 function showEditModal(id_materiaPrima){
     
     modal_edit.show();
@@ -118,5 +141,86 @@ function showEditModal(id_materiaPrima){
 
     });
 
+}
+function showDeleteModal(id_materiaPrima, button){
+    
+    modal_delete.show();
+
+    $.ajax({
+
+        // Chama o arquivo que pega as informações
+        url: "utilities/puxarInfo_estoque.php",
+        // Define o method
+        method: "post",
+        // Valores de "input"
+        data:{
+
+            id: id_materiaPrima,
+            tipoBotao: button
+
+        },
+        // Quando der certo retorna um valor
+        success: function(data){
+
+            $("#modalDelete_body").html(data);
+
+        }
+
+    });
+
 
 }
+document.getElementById('form_edit').addEventListener('submit', event => {
+   
+    event.preventDefault();
+
+    let nome = document.getElementById('nome_prod_edit').value;
+    let qtd = document.getElementById('qtd_padrao_edit').value;
+    let unidade = document.getElementById('unidade_medida_edit').value;
+    let id = document.getElementById('id_edit').value;
+
+    if(nome.length > 0 && qtd.length > 0 && unidade.length > 0){
+        
+        $.ajax({
+            url: "utilities/editar_item_estoque.php",
+            method: "post",
+            data: {
+                nome: nome,
+                qtd_padrao: qtd,
+                unidade_medida: unidade,
+                id: id
+            },
+            success: function(){
+                modal_edit.hide();
+                clear_form_edit();
+                table('searchbar');
+            }
+        })
+    }
+});
+document.getElementById('form_delete').addEventListener('submit', event => {
+   
+    event.preventDefault();
+
+    let nome = document.getElementById('nome_prod_delete').value;
+    let qtd = document.getElementById('qtd_padrao_delete').value;
+    let unidade = document.getElementById('unidade_medida_delete').value;
+    let id = document.getElementById('id_delete').value;
+
+    if(nome.length > 0 && qtd.length > 0 && unidade.length > 0){
+        
+        $.ajax({
+            url: "utilities/deletar_item_estoque.php",
+            method: "post",
+            data: {
+                
+                id: id
+            },
+            success: function(){
+                modal_delete.hide();
+                clear_form_delete();
+                table('searchbar');
+            }
+        })
+    }
+});
