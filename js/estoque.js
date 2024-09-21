@@ -37,7 +37,7 @@ document.getElementById('form_add').addEventListener('submit', event => {
             success: function(){
                 modal_add.hide();
                 clear_form();
-                table('');
+                table('searchbar');
             }
         })
     }
@@ -65,17 +65,14 @@ function getFilters(){
     if(estado.length > 0){
         
         if(estado == 'falta'){
-            console.log('falta')
             return 'and ((100 * qtd_estoque) / qtd_padrao) <= 25';
         
         }
         if(estado == 'em_estoque'){
-            console.log('em_estoque')
             return 'and ((100 * qtd_estoque) / qtd_padrao) > 25';
 
         }
     }
-    console.log('todos')
     return '';
 }
 
