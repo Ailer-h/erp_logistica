@@ -35,7 +35,7 @@
     
     include "mysqlconecta.php";
 
-    $query = mysqli_query($conexao, "select id_materiaPrima,nome_produto,qtd_padrao,qtd_estoque,unidade_medida from estoque where id_empresa = $empresa and nome_produto like '%$search%' $filtros");
+    $query = mysqli_query($conexao, "select id_materiaPrima,nome_produto,qtd_padrao,qtd_estoque,unidade_medida from estoque where id_empresa = $empresa and nome_produto like '%$search%' and estado != 'deletado' $filtros");
 
     while($infos_estoque = mysqli_fetch_array($query)){
 

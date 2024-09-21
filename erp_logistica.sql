@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 21, 2024 at 01:00 AM
+-- Generation Time: Sep 21, 2024 at 01:07 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -55,17 +55,18 @@ CREATE TABLE `estoque` (
   `nome_produto` varchar(100) NOT NULL,
   `qtd_padrao` int(11) NOT NULL,
   `qtd_estoque` int(11) NOT NULL DEFAULT 0,
-  `unidade_medida` varchar(10) NOT NULL
+  `unidade_medida` varchar(10) NOT NULL,
+  `estado` varchar(10) NOT NULL DEFAULT 'em_uso'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `estoque`
 --
 
-INSERT INTO `estoque` (`id_materiaPrima`, `id_empresa`, `nome_produto`, `qtd_padrao`, `qtd_estoque`, `unidade_medida`) VALUES
-(1, 1, 'Farinha de Trigo', 10, 4, 'kg'),
-(2, 1, 'Fermento', 5, 5, 'kg'),
-(3, 1, 'Sal', 15, 2, 'kg');
+INSERT INTO `estoque` (`id_materiaPrima`, `id_empresa`, `nome_produto`, `qtd_padrao`, `qtd_estoque`, `unidade_medida`, `estado`) VALUES
+(1, 1, 'Farinha de Trigo', 10, 4, 'kg', 'em_uso'),
+(2, 1, 'Fermento', 5, 5, 'kg', 'em_uso'),
+(3, 1, 'Sal', 15, 2, 'g', 'em_uso');
 
 -- --------------------------------------------------------
 
@@ -141,7 +142,7 @@ ALTER TABLE `empresa`
 -- AUTO_INCREMENT for table `estoque`
 --
 ALTER TABLE `estoque`
-  MODIFY `id_materiaPrima` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_materiaPrima` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `nota`
