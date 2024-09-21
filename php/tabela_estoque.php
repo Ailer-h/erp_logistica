@@ -14,7 +14,7 @@
     <title>Estoque</title>
 </head>
 
-<body class="bg-body-tertiary h-100">
+<body class="bg-body-tertiary h-100" id="body">
     <nav class="navbar navbar-expand-lg border-bottom bg-body-secondary">
         <div class="container-fluid">
             <a class="navbar-brand" href="dashboard.php">ERP Logistico</a>
@@ -149,38 +149,40 @@
             </div>
         </div>
     </div>
+
     <!-- Modal Edit -->
     <div class="modal fade" id="modal_edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Item</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="clear_form()"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form id="form_edit" class="needs-validation" novalidate>
                     <div class="modal-body" id="modalEdit_body">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clear_form()">Cancelar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-warning">Salvar</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
     <!-- Modal Delete -->
     <div class="modal fade" id="modal_delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Deletar Item</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="clear_form()"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form id="form_delete" class="needs-validation" novalidate>
                     <div class="modal-body" id="modalDelete_body">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clear_form()">Cancelar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </div>
                 </form>

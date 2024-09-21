@@ -56,20 +56,14 @@ function clear_form_add(){
 
 function clear_form_edit(){
 
-    document.getElementById('nome_prod_edit').value = '';
-    document.getElementById('qtd_padrao_edit').value = '';
-    document.getElementById('unidade_medida-edit').value = '-1';
-    document.getElementById('id_edit').value = '';
     document.getElementById('form_edit').classList.remove('was-validated');
+    document.getElementById('modalEdit_body').innerHTML = '';
 
 }
 function clear_form_delete(){
 
-    document.getElementById('nome_prod_delete').value = '';
-    document.getElementById('qtd_padrao_delete').value = '';
-    document.getElementById('unidade_medida-delete').value = '-1';
-    document.getElementById('id_delete').value = '';
     document.getElementById('form_delete').classList.remove('was-validated');
+    document.getElementById('modalDelete_body').innerHTML = '';
 
 }
 
@@ -156,7 +150,7 @@ function showDeleteModal(id_materiaPrima, button){
         data:{
 
             id: id_materiaPrima,
-            tipoBotao: button
+            tipoBotao: 'delete'
 
         },
         // Quando der certo retorna um valor
@@ -191,9 +185,9 @@ document.getElementById('form_edit').addEventListener('submit', event => {
                 id: id
             },
             success: function(){
-                modal_edit.hide();
-                clear_form_edit();
                 table('searchbar');
+                clear_form_edit();
+                modal_edit.hide();
             }
         })
     }
@@ -202,25 +196,18 @@ document.getElementById('form_delete').addEventListener('submit', event => {
    
     event.preventDefault();
 
-    let nome = document.getElementById('nome_prod_delete').value;
-    let qtd = document.getElementById('qtd_padrao_delete').value;
-    let unidade = document.getElementById('unidade_medida_delete').value;
     let id = document.getElementById('id_delete').value;
 
-    if(nome.length > 0 && qtd.length > 0 && unidade.length > 0){
-        
         $.ajax({
             url: "utilities/deletar_item_estoque.php",
             method: "post",
             data: {
-                
                 id: id
             },
-            success: function(){
-                modal_delete.hide();
-                clear_form_delete();
+            success: function(data){
                 table('searchbar');
+                clear_form_delete();
+                modal_delete.hide();
             }
         })
-    }
 });

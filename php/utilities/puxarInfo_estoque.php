@@ -69,11 +69,11 @@ include "mysqlconecta.php";
 
 $id = $_POST["id"];
 
-$botao = $_POST["tipoBotao"];
+    $botao = isset($_POST["tipoBotao"]) ? $_POST["tipoBotao"] : "";
 
     $infos_estoque = mysqli_fetch_array(mysqli_query($conexao, "SELECT nome_produto, qtd_padrao, unidade_medida FROM estoque WHERE id_materiaPrima = '$id'"));
 
-    if($botao == 'Delete'){
+    if($botao == 'delete'){
 
         echo "<div class='row'>
         <div class='col'>
