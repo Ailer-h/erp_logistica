@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 21, 2024 at 01:07 PM
+-- Generation Time: Sep 21, 2024 at 04:14 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -66,7 +66,7 @@ CREATE TABLE `estoque` (
 INSERT INTO `estoque` (`id_materiaPrima`, `id_empresa`, `nome_produto`, `qtd_padrao`, `qtd_estoque`, `unidade_medida`, `estado`) VALUES
 (1, 1, 'Farinha de Trigo', 10, 4, 'kg', 'em_uso'),
 (2, 1, 'Fermento', 5, 5, 'kg', 'em_uso'),
-(3, 1, 'Sal', 15, 2, 'g', 'em_uso');
+(3, 1, 'Sal', 15, 2, 'kg', 'em_uso');
 
 -- --------------------------------------------------------
 
@@ -77,10 +77,20 @@ INSERT INTO `estoque` (`id_materiaPrima`, `id_empresa`, `nome_produto`, `qtd_pad
 CREATE TABLE `nota` (
   `id_nota` int(11) NOT NULL,
   `id_empresa` int(11) NOT NULL,
-  `produto_nota` varchar(100) NOT NULL,
+  `produto_nota` int(11) NOT NULL,
   `qtd_produto` int(11) NOT NULL,
-  `data_nota` date DEFAULT NULL
+  `data_nota` date DEFAULT NULL,
+  `estado_nota` varchar(15) NOT NULL DEFAULT 'Requisitada'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `nota`
+--
+
+INSERT INTO `nota` (`id_nota`, `id_empresa`, `produto_nota`, `qtd_produto`, `data_nota`, `estado_nota`) VALUES
+(1, 1, 1, 10000, '1111-11-11', 'Requisitada'),
+(2, 1, 2, 100, '1111-11-11', 'Requisitada'),
+(3, 1, 3, 100, '2010-10-10', 'Requisitada');
 
 -- --------------------------------------------------------
 
@@ -118,7 +128,8 @@ ALTER TABLE `estoque`
 --
 ALTER TABLE `nota`
   ADD PRIMARY KEY (`id_nota`),
-  ADD KEY `id_empresa` (`id_empresa`);
+  ADD KEY `id_empresa` (`id_empresa`),
+  ADD KEY `produto_nota` (`produto_nota`);
 
 --
 -- Indexes for table `registro`
@@ -142,19 +153,30 @@ ALTER TABLE `empresa`
 -- AUTO_INCREMENT for table `estoque`
 --
 ALTER TABLE `estoque`
-  MODIFY `id_materiaPrima` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_materiaPrima` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `nota`
 --
 ALTER TABLE `nota`
-  MODIFY `id_nota` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_nota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `registro`
 --
 ALTER TABLE `registro`
   MODIFY `id_registro` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `nota`
+--
+ALTER TABLE `nota`
+  ADD CONSTRAINT `nota_ibfk_1` FOREIGN KEY (`id_empresa`) REFERENCES `empresa` (`id_empresa`),
+  ADD CONSTRAINT `nota_ibfk_2` FOREIGN KEY (`produto_nota`) REFERENCES `estoque` (`id_materiaPrima`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
