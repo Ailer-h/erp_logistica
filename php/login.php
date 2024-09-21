@@ -104,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
 
       toast.show();
 
-    </script>';";
+    </script>'";
 
   }
 }

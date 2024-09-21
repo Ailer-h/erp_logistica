@@ -58,7 +58,7 @@
             <button type='button' class='btn btn-warning fw-bold' title='Deletar'>
                 <i class='bi bi-trash3-fill'></i>
             </button>
-            <button type='button' class='btn btn-warning fw-bold' title='Editar'>
+            <button type='button' class='btn btn-warning fw-bold' onclick='showEditModal($infos_estoque[0])' title='Editar'>
                 <i class='bi bi-pencil-fill'></i>
             </button>
             <button type='button' class='btn btn-warning fw-bold' title='Dar baixa'>
