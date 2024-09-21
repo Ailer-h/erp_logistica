@@ -1,5 +1,6 @@
 const forms = document.querySelectorAll('.needs-validation')
 const modal_add = new bootstrap.Modal('#modal_add');
+const modal_edit = new bootstrap.Modal('#modal_edit');
 
 document.addEventListener('DOMContentLoaded', function(){
     table('searchbar');
@@ -37,7 +38,7 @@ document.getElementById('form_add').addEventListener('submit', event => {
             success: function(){
                 modal_add.hide();
                 clear_form();
-                table('');
+                table('searchbar');
             }
         })
     }
@@ -94,4 +95,31 @@ function table(searchbar_id){
             $('#table').html(data)
         }
     });
+}
+function showEditModal(id_materiaPrima){
+    
+    modal_edit.show();
+
+    $.ajax({
+
+        // Chama o arquivo que pega as informações
+        url: "utilities/puxarInfo_estoque.php",
+        // Define o method
+        method: "post",
+        // Valores de "input"
+        data:{
+
+            id: id_materiaPrima
+
+        },
+        // Quando der certo retorna um valor
+        success: function(data){
+
+            $("#modalEdit_body").html(data);
+
+        }
+
+    });
+
+
 }

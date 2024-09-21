@@ -149,6 +149,26 @@
             </div>
         </div>
     </div>
+    <!-- Modal Edit -->
+    <div class="modal fade" id="modal_edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Novo Item</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="clear_form()"></button>
+                </div>
+                <form id="form_add" class="needs-validation" novalidate>
+                    <div class="modal-body" id="modalEdit_body">
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clear_form()">Cancelar</button>
+                        <button type="submit" class="btn btn-warning">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <footer class="bg-body-tertiary text-center text-lg-start">
         <div class="text-center p-2" style="background-color: rgba(0, 0, 0, 0.05); font-size: .75em;">
