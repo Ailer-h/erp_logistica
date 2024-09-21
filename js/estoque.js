@@ -1,4 +1,4 @@
-const forms = document.querySelectorAll('.needs-validation')
+const forms = document.querySelectorAll('.needs-validation');
 const modal_add = new bootstrap.Modal('#modal_add');
 const modal_edit = new bootstrap.Modal('#modal_edit');
 const modal_delete = new bootstrap.Modal('#modal_delete');
@@ -37,9 +37,9 @@ document.getElementById('form_add').addEventListener('submit', event => {
                 unidade_medida: unidade
             },
             success: function(){
-                modal_add.hide();
-                clear_form_add();
                 table('searchbar');
+                clear_form_add();
+                modal_add.hide();
             }
         })
     }
@@ -123,7 +123,8 @@ function showEditModal(id_materiaPrima){
         // Valores de "input"
         data:{
 
-            id: id_materiaPrima
+            id: id_materiaPrima,
+            acao: 'edit'
 
         },
         // Quando der certo retorna um valor
@@ -150,7 +151,7 @@ function showDeleteModal(id_materiaPrima, button){
         data:{
 
             id: id_materiaPrima,
-            tipoBotao: 'delete'
+            acao: 'delete'
 
         },
         // Quando der certo retorna um valor
@@ -198,16 +199,16 @@ document.getElementById('form_delete').addEventListener('submit', event => {
 
     let id = document.getElementById('id_delete').value;
 
-        $.ajax({
-            url: "utilities/deletar_item_estoque.php",
-            method: "post",
-            data: {
-                id: id
-            },
-            success: function(data){
-                table('searchbar');
-                clear_form_delete();
-                modal_delete.hide();
-            }
-        })
+    $.ajax({
+        url: "utilities/deletar_item_estoque.php",
+        method: "post",
+        data: {
+            id: id
+        },
+        success: function(data){
+            table('searchbar');
+            clear_form_delete();
+            modal_delete.hide();
+        }
+    })
 });

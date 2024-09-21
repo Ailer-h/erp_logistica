@@ -5,11 +5,11 @@ function getNamesEstoque()
 
     include "utilities/mysqlconecta.php";
 
-    $query = mysqli_query($conexao, "SELECT nome_produto FROM estoque");
+    $query = mysqli_query($conexao, "select nome_produto, id_materiaPrima from estoque where estado != 'deletado'");
 
-    while ($names = mysqli_fetch_array($query)) {
+    while ($produto = mysqli_fetch_array($query)) {
 
-        echo "<option>$names[0]</option>";
+        echo "<option value='$produto[1]'>$produto[0]</option>";
 
     }
 
@@ -28,6 +28,7 @@ function getNamesEstoque()
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>Estoque</title>
 </head>
 
@@ -77,8 +78,7 @@ function getNamesEstoque()
                 </div>
             </div>
             <div class="col">
-                <button type="button" class="btn btn-warning fw-bold" data-bs-toggle="modal"
-                    data-bs-target="#modal_nota">
+                <button type="button" class="btn btn-warning fw-bold" data-bs-toggle="modal" data-bs-target="#modal_add">
                     <i class="bi bi-plus-circle bold"></i>
                     Nova nota
                 </button>
@@ -94,24 +94,24 @@ function getNamesEstoque()
                     <th scope="col">Produto</th>
                     <th scope="col">Quantidade do Produto</th>
                     <th scope="col">Data de chegada</th>
+                    <th scope="col">Estado</th>
                     <th scope="col">Ações</th>
                 </tr>
             </thead>
-            <tbody>
-
+            <tbody id="table">
             </tbody>
         </table>
     </div>
 
     <!-- Modal de nova nota -->
-    <div class="modal fade" id="modal_nota" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal_add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form id="form" class="needs-validation" novalidate>
+                <form id="form_add" class="needs-validation" novalidate>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col">
@@ -121,14 +121,14 @@ function getNamesEstoque()
                             </div>
                             <div class="col">
                                 <small class="form-text align-start mb-1">
-                                    Quantidade padrão no estoque:
+                                    Quantidade a receber:
                                 </small>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col">
-                                <select class="form-select" aria-label="Default select example" required>
+                                <select class="form-select" id="nome_produto" aria-label="Default select example" required>
                                     <option selected hidden disabled value="">Produto...</option>
                                     <?php
 
@@ -141,7 +141,7 @@ function getNamesEstoque()
                                 </div>
                             </div>
                             <div class="col">
-                                <input class="form-control" type="text" id="qtd_padrao">
+                                <input class="form-control" type="text" id="qtd_requisitada" oninput="int_js(this.value, this)" required>
                                 <div class="invalid-feedback">
                                     Insira uma quantidade.
                                 </div>
@@ -150,22 +150,22 @@ function getNamesEstoque()
                         <div class="row">
                             <div class="col">
                                 <small class="form-text align-start mb-1">
-                                    Data de chegada
+                                    Data de chegada:
                                 </small>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
-                                <input class="form-control" type="text" id="data_chegada">
+                                <input class="form-control" type="text" id="data_chegada" placeholder="dd/mm/yyyy" required>
                                 <div class="invalid-feedback">
-                                    Insira uma quantidade.
+                                    Insira uma data de chegada.
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-warning">Salvar</button>
+                        <button type="submit" class="btn btn-warning">Salvar</button>
                     </div>
                 </form>
             </div>
@@ -193,5 +193,5 @@ function getNamesEstoque()
         datePattern: ['d', 'm', 'Y']
     });
 </script>
-
+<script src="../js/notas.js"></script>
 </html>
