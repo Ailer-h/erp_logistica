@@ -1,6 +1,6 @@
 const forms = document.querySelectorAll('.needs-validation');
 const modal_add = new bootstrap.Modal('#modal_add')
-const modal_edit = new bootstrap.Modal('#modal_edit')
+const modal_cancel = new bootstrap.Modal('#modal_cancel')
 
 document.addEventListener('DOMContentLoaded', function(){
     table('searchbar');
@@ -54,10 +54,10 @@ function clear_form_add(){
 
 }
 
-function clear_form_edit(){
+function clear_form_cancel(){
 
-    document.getElementById('form_edit').classList.remove('was-validated');
-    document.getElementById('modalEdit_body').innerHTML = '';
+    document.getElementById('form_cancel').classList.remove('was-validated');
+    document.getElementById('modalCancel_body').innerHTML = '';
 
 }
 
@@ -112,6 +112,55 @@ function int_js(valor, input){
     document.getElementById(input.id).value = valor;
 
 }
+
+function showCancelModal(id_nota){
+    
+    modal_cancel.show();
+
+    $.ajax({
+
+        // Chama o arquivo que pega as informações
+        url: "utilities/puxarInfo_nota.php",
+        // Define o method
+        method: "post",
+        // Valores de "input"
+        data:{
+
+            id: id_nota,
+
+        },
+        // Quando der certo retorna um valor
+        success: function(data){
+
+            $("#modalCancel_body").html(data);
+
+        }
+
+    });
+
+}
+document.getElementById('form_cancel').addEventListener('submit', event => {
+   
+    event.preventDefault();
+
+    let id = document.getElementById('id_cancel').value;
+        
+        $.ajax({
+            url: "utilities/cancelar_item_nota.php",
+            method: "post",
+            data: {
+
+                id: id
+
+            },
+            success: function(){
+                table('searchbar');
+                clear_form_cancel();
+                modal_cancel.hide();
+            }
+        })
+    
+});
 
 function change_input_sufix(id_materiaPrima){
     $.ajax({
