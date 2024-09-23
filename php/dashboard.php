@@ -1,3 +1,9 @@
+<?php
+
+    include "utilities/verifySession.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -25,7 +31,6 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
                             <a href="utilities/logout.php" class="nav-link active link-logout">Logout</a>
                         </li>
                     </ul>

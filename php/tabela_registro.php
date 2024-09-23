@@ -1,5 +1,6 @@
 <?php
 
+include "utilities/verifySession.php";
 function getIdsNotas()
 {
 
@@ -43,7 +44,18 @@ function getIdsNotas()
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="utilities/logout.php" class="nav-link active link-logout">Logout</a>
+                    </li>
+                </ul>
             </div>
+            <a href="utilities/logout.php">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path
+                        d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z" />
+                </svg>
+            </a>
         </div>
     </nav>
 
