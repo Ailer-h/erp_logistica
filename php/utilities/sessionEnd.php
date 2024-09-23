@@ -18,7 +18,7 @@
         <h5 class="modal-title">Sessão expirada</h5>
       </div>
       <div class="modal-body">
-        <p>Sua Sessão foi expirada ou você não tem permissão para entrar aqui, favor voltar para a página de login</p>
+        <p>Sua sessão expirou ou você não tem permissão para entrar aqui. Por favor volte para a página de login.</p>
       </div>
       <div class="modal-footer">
         <a href="../login.php"><button type="button" class="btn btn-danger">Voltar a tela de login</button></a>
