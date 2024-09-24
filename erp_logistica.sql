@@ -102,8 +102,9 @@ CREATE TABLE `registro` (
   `id_registro` int(11) NOT NULL,
   `id_empresa` int(11) NOT NULL,
   `id_nota` int(11) NOT NULL,
-  `qtd_recebida` int(11) NOT NULL,
-  `estado_registro` varchar(20) NOT NULL DEFAULT 'requisitado'
+  `qtd_recebida` int(11) DEFAULT NULL,
+  `data_registro` date DEFAULT NULL,
+  `estado_registro` varchar(20) NOT NULL DEFAULT 'Requisitado'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

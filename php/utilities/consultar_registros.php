@@ -1,8 +1,12 @@
 <?php
 
-    include "utilities/mysqlconecta.php";
+    session_start();
 
-    $query = mysqli_query($conexao, "SELECT id_registro,id_nota,qtd_recebida,estado_registro FROM registro");
+    include "mysqlconecta.php";
+
+    $id = $_SESSION['id_empresa'];
+
+    $query = mysqli_query($conexao, "select id_registro,id_nota,qtd_recebida,estado_registro from registro where id_empresa = $id");
 
     while($infos_registro = mysqli_fetch_array($query)){
 
