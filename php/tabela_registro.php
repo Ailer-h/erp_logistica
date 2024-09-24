@@ -93,7 +93,7 @@ function getIdsNotas()
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">ID da nota</th>
+                    <th scope="col">Produto</th>
                     <th scope="col">Quantidade recebida</th>
                     <th scope="col">Estado do Registro</th>
                     <th scope="col">Ações</th>
