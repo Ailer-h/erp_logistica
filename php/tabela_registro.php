@@ -105,75 +105,18 @@ function getIdsNotas()
     </div>
 
     <!-- Modal do CRUD -->
-    <div class="modal fade" id="modal_crud" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal_confirm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmar Chegada</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form id="form" class="needs-validation" novalidate>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col">
-                                <small class="form-text align-start mb-1">
-                                    Selecione o ID da nota:
-                                </small>
-                            </div>
-                            <div class="col">
-                                <small class="form-text align-start mb-1">
-                                    Quantidade recebida no estoque:
-                                </small>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected hidden>Open this select menu</option>
-                                    <?php
-
-                                        getIdsNotas();
-
-                                    ?>
-                                </select>
-                                <div class="invalid-feedback">
-                                    Insira um nome.
-                                </div>
-                            </div>
-                            <div class="col">
-                                <input class="form-control" type="text" id="qtd_padrao">
-                                <div class="invalid-feedback">
-                                    Insira uma quantidade.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <small class="form-text align-start mb-1">
-                                    Defina um Estado:
-                                </small>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected hidden>Estado do Registro</option>
-                                    <option value="1">Requisitado</option>
-                                    <option value="2">Em análise</option>
-                                    <option value="3">Devolvido</option>
-                                    <option value="4">Encaminhado para estoque</option>
-                                    <option value="5">Encaminhado para produção</option>
-                                </select>
-                                <div class="invalid-feedback">
-
-                                </div>
-                            </div>
-                        </div>
+                <form id="form_confirm" class="needs-validation" novalidate>
+                    <div class="modal-body" id="modalConfirm_body">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-warning">Salvar</button>
+                        <button type="submit" class="btn btn-warning">Confirmar</button>
                     </div>
                 </form>
             </div>
