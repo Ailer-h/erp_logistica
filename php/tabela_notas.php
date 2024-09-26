@@ -141,7 +141,7 @@ function getNamesEstoque()
                         <div class="row">
                             <div class="col">
                                 <select class="form-select" id="nome_produto" aria-label="Default select example"
-                                    oninput="change_input_sufix(this.value    )" required>
+                                    oninput="change_input_sufix(this.value); " required>
                                     <option selected hidden disabled value="">Produto...</option>
                                     <?php
 
@@ -155,8 +155,7 @@ function getNamesEstoque()
                             </div>
                             <div class="col">
                                 <div class="input-group">
-                                    <input class="form-control" type="text" id="qtd_requisitada"
-                                        oninput="int_js(this.value, this)" required>
+                                    <input class="form-control" type="text" id="qtd_requisitada" oninput="int_js(this.value, this); limit_input(this.id)" disabled required>
                                         
                                     <span class="input-group-text" id="span_unidade_medida">
                                         ...

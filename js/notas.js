@@ -49,6 +49,7 @@ function clear_form_add(){
     document.getElementById('nome_produto').value = '';
     document.getElementById('qtd_requisitada').value = '';
     document.getElementById('data_chegada').value = '';
+    document.getElementById('qtd_requisitada').disabled = true;
 
     document.getElementById('form_add').classList.remove('was-validated');
 
@@ -171,6 +172,16 @@ function change_input_sufix(id_materiaPrima){
         },
         success: function(data){
             $('#span_unidade_medida').html(data);
+            document.getElementById('qtd_requisitada').disabled = false;
         }
     });
+}
+
+function limit_input(id_input){
+    let input = document.getElementById(id_input);
+    let max_nota = document.getElementById('max-nota').value;
+
+    if(parseFloat(input.value) > max_nota){
+        input.value = max_nota;
+    }
 }

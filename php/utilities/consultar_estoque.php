@@ -35,13 +35,15 @@
     
     include "mysqlconecta.php";
 
-    $query = mysqli_query($conexao, "select id_materiaPrima,nome_produto,qtd_padrao,qtd_estoque,unidade_medida from estoque where id_empresa = $empresa and nome_produto like '%$search%' and estado != 'deletado' $filtros");
+    $query = mysqli_query($conexao, "select id_materiaPrima,nome_produto,qtd_padrao,qtd_estoque,unidade_medida from estoque where id_empresa = $empresa and nome_produto like '%$search%' and estado != 'deletado' $filtros order by id_materiaPrima desc");
 
     while($infos_estoque = mysqli_fetch_array($query)){
 
         $percentage = getPercentageShow($infos_estoque[3], $infos_estoque[2]);
         $percentage_real = getPercentageReal($infos_estoque[3], $infos_estoque[2]);
         $color = getProgressBarColor($percentage);
+        $disable_order = $infos_estoque[3] <= 0 ? "disabled" : "";
+        $color_order = $infos_estoque[3] <= 0 ? "secondary" : "warning";
 
         echo "<tr>";
 
@@ -61,7 +63,7 @@
             <button type='button' class='btn btn-warning fw-bold' onclick='showEditModal($infos_estoque[0])' title='Editar'>
                 <i class='bi bi-pencil-fill'></i>
             </button>
-            <button type='button' class='btn btn-warning fw-bold' onclick='show_modalBaixa($infos_estoque[0])' title='Dar baixa'>
+            <button type='button' class='btn btn-$color_order fw-bold' onclick='show_modalBaixa($infos_estoque[0])' $disable_order title='Dar baixa'>
                 <i class='bi bi-arrow-down-right-circle bold'></i>
             </button>
         </td>";

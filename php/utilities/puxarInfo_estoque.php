@@ -66,6 +66,7 @@
     </div>";
 
     if($acao == "baixa"){
+
         echo"<div class='row'>
             <div class='col'>
                 <small class='form-text align-start my-1'>
@@ -76,7 +77,7 @@
 
         echo"<div class='row'>
             <div class='col'>
-                <input class='form-control' type='text' id='qtd_prod_baixa' oninput='int_js(this.value, this)'' required>
+                <input class='form-control' type='text' id='qtd_prod_baixa' oninput='int_js(this.value, this); limit_input(this.id, $infos_estoque[2])' required>
                 <div class='invalid-feedback'>
                     Insira uma quantidade.
                 </div>

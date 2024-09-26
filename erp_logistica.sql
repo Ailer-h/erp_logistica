@@ -83,15 +83,6 @@ CREATE TABLE `nota` (
   `estado_nota` varchar(15) NOT NULL DEFAULT 'Requisitada'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `nota`
---
-
-INSERT INTO `nota` (`id_nota`, `id_empresa`, `produto_nota`, `qtd_produto`, `data_nota`, `estado_nota`) VALUES
-(1, 1, 1, 10000, '1111-11-11', 'Requisitada'),
-(2, 1, 2, 100, '1111-11-11', 'Requisitada'),
-(3, 1, 3, 100, '2010-10-10', 'Requisitada');
-
 -- --------------------------------------------------------
 
 --
