@@ -8,12 +8,13 @@
     $search = $_POST['search'];
     $hoje = date("Y-m-d");
 
-    $query = mysqli_query($conexao, "select nt.id_nota, nt.qtd_produto, est.nome_produto, est.unidade_medida, rg.qtd_recebida, rg.estado_registro, rg.data_registro,rg.id_registro, nt.data_nota from registro rg, nota nt, estoque est where rg.id_empresa = $id and rg.id_nota = nt.id_nota and nt.produto_nota = est.id_materiaPrima and est.nome_produto like '%$search%';");
+    $query = mysqli_query($conexao, "select nt.id_nota, nt.qtd_produto, est.nome_produto, est.unidade_medida, rg.qtd_recebida, rg.estado_registro, rg.data_registro,rg.id_registro, nt.data_nota from registro rg, nota nt, estoque est where rg.id_empresa = $id and rg.id_nota = nt.id_nota and nt.produto_nota = est.id_materiaPrima and est.nome_produto like '%$search%' order by rg.id_registro desc;");
 
     while($infos_registro = mysqli_fetch_array($query)){
 
         $qtd_recebida = $infos_registro[4] != null ? $infos_registro[4] . " ". $infos_registro[3] : "---";
         $data_prevista = implode("/", array_reverse(explode("-", $infos_registro[8])));
+        $data_recebida = $infos_registro[6] == "" ? "---" : implode("/", array_reverse(explode("-", $infos_registro[6])));
 
         $cor_estado = ($infos_registro[6] == "" && $infos_registro[8] < $hoje) || ($infos_registro[6] != "" && $infos_registro[8] < $infos_registro[6]) ? "text-danger fst-italic" : "";
 
@@ -26,6 +27,7 @@
         </td>";
         echo "<td class='align-middle'>$qtd_recebida</td>";
         echo "<td class='align-middle $cor_estado'>$data_prevista</td>";
+        echo "<td class='align-middle'>$data_recebida</td>";
         echo "<td class='align-middle'>$infos_registro[5]</td>";
 
         if($infos_registro[5] == 'Requisitado'){

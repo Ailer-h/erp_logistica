@@ -85,6 +85,7 @@ include "utilities/verifySession.php";
                     <th scope="col">Produto</th>
                     <th scope="col">Quantidade recebida</th>
                     <th scope="col">Data prevista</th>
+                    <th scope="col">Data recebida</th>
                     <th scope="col">Estado do Registro</th>
                     <th scope="col">Ações</th>
                 </tr>
