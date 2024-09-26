@@ -9,6 +9,7 @@
   <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
   <title>Login</title>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body class="d-flex align-items-center py-4 bg-body-tertiary h-100">
@@ -42,9 +43,12 @@
         <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
         <label for="floatingInput">Email address</label>
       </div>
+      <div class="input-wrap">
       <div class="form-floating mb-3">
-        <input type="password" class="form-control" id="floatingPassword" name="senha" placeholder="Password">
-        <label for="floatingPassword">Password</label>
+          <input type="password" class="form-control" id="floatingPassword" name="senha" placeholder="Password">
+          <i class="bi bi-eye-slash-fill fs-4" id="show_password" onclick="showPassword()"></i>
+          <label for="floatingPassword">Password</label>
+        </div>
       </div>
 
       <button class="btn btn-outline-warning w-100 py-2" name="login">Login</button>
@@ -55,7 +59,7 @@
  </main>
 
 </body>
-
+<script src="../js/showPassword.js"></script>
 </html>
 
 <?php

@@ -65,6 +65,23 @@ img{
 
 }
 
+.input-wrap{
+    position: relative;
+}
+
+#show_password{
+    position: absolute;
+
+    width: fit-content;
+    height: fit-content;
+
+    cursor: pointer;
+
+    right: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 @media (min-width:1200px) {
     
     nav svg{
