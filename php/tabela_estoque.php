@@ -219,6 +219,18 @@
                 </form>
             </div>
         </div>
+         <!-- Aviso de quantidade recebida invalida -->
+         <div class="toast align-items-center text-bg-danger border-0 position-absolute top-0 end-0 m-4" role="alert"
+            aria-live="assertive" id="alert-qtd" aria-atomic="true" d-block" data-bs-delay='4000'
+            data-bs-autohide="true">
+            <div class="d-flex">
+                <div class="toast-body fw-bold">
+                    Quantidade enviada não pode exceder quantidade em estoque.
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
     </div>
 
     <footer class="bg-body-tertiary text-center text-lg-start">

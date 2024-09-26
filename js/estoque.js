@@ -252,18 +252,28 @@ document.getElementById('form_baixa').addEventListener('submit', event =>{
 
     let id = document.getElementById('id_baixa').value;
     let qtd = document.getElementById('qtd_prod_baixa').value;
+    let qtd_estoque = document.getElementById('qtd_padrao_baixa').value;
 
-    $.ajax({
-        url: "utilities/dar_baixa.php",
-        method: "post",
-        data: {
-            id: id,
-            qtd: qtd
-        },
-        success: function(){
-            table('searchbar');
-            clear_form_baixa();
-            modal_baixa.hide();
-        }
-    });
+    if(qtd <= qtd_estoque){
+        $.ajax({
+            url: "utilities/dar_baixa.php",
+            method: "post",
+            data: {
+                id: id,
+                qtd: qtd
+            },
+            success: function(){
+                table('searchbar');
+                clear_form_baixa();
+                modal_baixa.hide();
+            }
+        });
+    }else{
+
+        const toastContent = document.querySelector('#alert-qtd');
+        const toast = new bootstrap.Toast(toastContent);
+
+        toast.show();
+
+    }
 })
