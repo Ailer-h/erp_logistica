@@ -79,6 +79,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
 
       $_SESSION['id_empresa'] = $infos[2];
 
+      //Aumenta o tempo da sessão para 30 dias
+      $params = session_get_cookie_params();
+      setcookie(session_name(), $_COOKIE[session_name()], time() + 60*60*24*30, $params["path"], $params["domain"], $params["secure"], $params["httponly"]);
+
       header("Location: dashboard.php");
       
     
