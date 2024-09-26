@@ -1,20 +1,6 @@
 <?php
 
-include "utilities/verifySession.php";
-function getIdsNotas()
-{
-
-    include "utilities/mysqlconecta.php";
-
-    $query = mysqli_query($conexao, "SELECT id_nota FROM nota");
-
-    while ($ids = mysqli_fetch_array($query)) {
-
-        echo "<option>$ids[0]</option>";
-
-    }
-
-}
+    include "utilities/verifySession.php";
 
 ?>
 
@@ -131,26 +117,25 @@ function getIdsNotas()
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form id="form_anali">
-                    <div class="modal-body" id="modalAnali_body">
+                    <div class="modal-body" id="modalAnali_body" novalidate>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-danger" onclick="returnOrder()">Devolver</button>
+                        <button type="button" class="btn btn-danger" onclick="returnOrder()">Devolver</button>
                         <button type="submit" class="btn btn-success">Mandar para estoque</button>
                     </div>
                 </form>
             </div>
         </div>
+        <!-- Aviso de quantidade recebida invalida -->
         <div class="toast align-items-center text-bg-danger border-0 position-absolute top-0 end-0 m-4" role="alert" aria-live="assertive" id="alert-senha" aria-atomic="true" d-block" data-bs-delay='4000' data-bs-autohide="true">
-      <div class="d-flex">
+        <div class="d-flex">
         <div class="toast-body fw-bold">
         Quantidade recebida não pode exceder quantidade pedida.
         </div>
         <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
     </div>
-    </div>
-    <!-- Aviso de quantidade recebida invalida -->
-    
+    </div>    
 
     <footer class="bg-body-tertiary text-center text-lg-start">
         <div class="text-center p-2" style="background-color: rgba(0, 0, 0, 0.05); font-size: .75em;">

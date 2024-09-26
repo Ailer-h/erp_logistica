@@ -129,8 +129,7 @@
                                 </div>
                             </div>
                             <div class="col">
-                                <input class="form-control" type="text" id="qtd_padrao"
-                                    oninput="int_js(this.value, this)" required>
+                                <input class="form-control" type="text" id="qtd_padrao" oninput="int_js(this.value, this)" required>
                                 <div class="invalid-feedback">
                                     Insira uma quantidade.
                                 </div>
@@ -196,6 +195,26 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-danger">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de baixa -->
+    <div class="modal fade" id="modal_baixa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Dar baixa</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="form_baixa" class="needs-validation" novalidate>
+                    <div class="modal-body" id="modalBaixa_body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-warning">Dar baixa</button>
                     </div>
                 </form>
             </div>

@@ -61,7 +61,7 @@
             <button type='button' class='btn btn-warning fw-bold' onclick='showEditModal($infos_estoque[0])' title='Editar'>
                 <i class='bi bi-pencil-fill'></i>
             </button>
-            <button type='button' class='btn btn-warning fw-bold'  title='Dar baixa'>
+            <button type='button' class='btn btn-warning fw-bold' onclick='show_modalBaixa($infos_estoque[0])' title='Dar baixa'>
                 <i class='bi bi-arrow-down-right-circle bold'></i>
             </button>
         </td>";

@@ -2,6 +2,7 @@ const forms = document.querySelectorAll('.needs-validation');
 const modal_add = new bootstrap.Modal('#modal_add');
 const modal_edit = new bootstrap.Modal('#modal_edit');
 const modal_delete = new bootstrap.Modal('#modal_delete');
+const modal_baixa = new bootstrap.Modal('#modal_baixa');
 
 document.addEventListener('DOMContentLoaded', function(){
     table('searchbar');
@@ -64,6 +65,13 @@ function clear_form_delete(){
 
     document.getElementById('form_delete').classList.remove('was-validated');
     document.getElementById('modalDelete_body').innerHTML = '';
+
+}
+
+function clear_form_baixa(){
+
+    document.getElementById('form_baixa').classList.remove('was-validated');
+    document.getElementById('modalBaixa_body').innerHTML = '';
 
 }
 
@@ -165,6 +173,32 @@ function showDeleteModal(id_materiaPrima){
 
 
 }
+
+function show_modalBaixa(id_materiaPrima){
+
+    modal_baixa.show();
+
+    $.ajax({
+
+        url: "utilities/puxarInfo_estoque.php",
+        method: "post",
+        data:{
+
+            id: id_materiaPrima,
+            acao: 'baixa'
+
+        },
+        // Quando der certo retorna um valor
+        success: function(data){
+
+            $("#modalBaixa_body").html(data);
+
+        }
+
+    });
+
+}
+
 document.getElementById('form_edit').addEventListener('submit', event => {
    
     event.preventDefault();
@@ -212,3 +246,24 @@ document.getElementById('form_delete').addEventListener('submit', event => {
         }
     })
 });
+
+document.getElementById('form_baixa').addEventListener('submit', event =>{
+    event.preventDefault();
+
+    let id = document.getElementById('id_baixa').value;
+    let qtd = document.getElementById('qtd_prod_baixa').value;
+
+    $.ajax({
+        url: "utilities/dar_baixa.php",
+        method: "post",
+        data: {
+            id: id,
+            qtd: qtd
+        },
+        success: function(){
+            table('searchbar');
+            clear_form_baixa();
+            modal_baixa.hide();
+        }
+    });
+})

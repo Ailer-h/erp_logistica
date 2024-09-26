@@ -193,29 +193,21 @@ document.getElementById('form_anali').addEventListener('submit', event =>{
 
 function returnOrder(){
 
-    document.getElementById('form_anali').addEventListener('submit', event =>{
+    let id = document.getElementById('id_regis').value;
 
-        event.preventDefault();
-    
-        let id = document.getElementById('id_regis').value;
-    
-            $.ajax({
-                
-                url: "utilities/verificar_nota.php",
-                method: 'post',
-                data: {
-    
-                    id: id,
-                    estado : 'Devolvido'
-    
-                },
-                success: function(){
-    
-                    table('searchbar');
-                    clear_form_anali();
-                    modal_anali.hide();
-                }
-            })
-        });
+    $.ajax({
+        
+        url: "utilities/verificar_nota.php",
+        method: 'post',
+        data: {
+            id: id,
+            estado : 'Devolvido'
+        },
+        success: function(){
+            table('searchbar');
+            clear_form_anali();
+            modal_anali.hide();
+        }
+    })
 
 }
