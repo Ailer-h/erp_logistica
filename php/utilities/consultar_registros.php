@@ -15,12 +15,7 @@
         $qtd_recebida = $infos_registro[4] != null ? $infos_registro[4] . " ". $infos_registro[3] : "---";
         $data_prevista = implode("/", array_reverse(explode("-", $infos_registro[8])));
 
-        /*
-            se a data recebida for maior que a data preivsta
-            ou a data prevista for menor que hoje e a data recebida for null
-        */
-
-        $cor_estado = ($infos_registro[5] > $infos_registro[8] && $infos_registro[5] != null) || ($infos_registro[8] < $hoje && $infos_registro[5] == null) ? "text-danger" : "";
+        $cor_estado = ($infos_registro[6] == "" && $infos_registro[8] < $hoje) || ($infos_registro[6] != "" && $infos_registro[8] < $infos_registro[6]) ? "text-danger fst-italic" : "";
 
         echo "<tr>";
 
