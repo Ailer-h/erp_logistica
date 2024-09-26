@@ -157,6 +157,7 @@ function getNamesEstoque()
                                 <div class="input-group">
                                     <input class="form-control" type="text" id="qtd_requisitada"
                                         oninput="int_js(this.value, this)" required>
+                                        
                                     <span class="input-group-text" id="span_unidade_medida">
                                         ...
                                     </span>

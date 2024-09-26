@@ -13,7 +13,7 @@
 
 <body class="d-flex align-items-center py-4 bg-body-tertiary h-100">
 
-<div class="toast align-items-center text-bg-danger border-0 position-absolute top-0 end-0 m-4" role="alert" aria-live="assertive" id="alert-senha" aria-atomic="true" d-block" data-bs-delay='1000' data-bs-autohide="true">
+    <div class="toast align-items-center text-bg-danger border-0 position-absolute top-0 end-0 m-4" role="alert" aria-live="assertive" id="alert-senha" aria-atomic="true" d-block" data-bs-delay='1000' data-bs-autohide="true">
       <div class="d-flex">
         <div class="toast-body fw-bold">
           Senha errado

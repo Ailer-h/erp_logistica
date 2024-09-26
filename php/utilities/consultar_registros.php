@@ -11,11 +11,11 @@
 
     while($infos_registro = mysqli_fetch_array($query)){
 
-        $qtd_recebida = $infos_registro[4] != null ? $infos_registro[4] : "---";
+        $qtd_recebida = $infos_registro[4] != null ? $infos_registro[4] . " ". $infos_registro[3] : "---";
 
         echo "<tr>";
 
-        echo "<td class='align-middle'>$infos_registro[0]</td>";
+        echo "<td class='align-middle'>$infos_registro[7]</td>";
         echo "<td class='align-middle'>
             $infos_registro[2] - 
             $infos_registro[1] $infos_registro[3]
@@ -34,10 +34,19 @@
         }else if($infos_registro[5] == 'Em análise'){
 
             echo "<td class='d-flex justify-content-evenly g-2'>
-                <button type='button' class='btn btn-warning fw-bold' title='Marcar como recebido'>
+                <button type='button' class='btn btn-warning fw-bold'  onclick='showModalAnali($infos_registro[7])' title='Analisar'>
                     <i class='bi bi-clipboard-data bold'></i>
                 </button>
             </td>";
+        
+        }else{
+
+            echo "<td class='d-flex justify-content-evenly g-2'>
+                <button type='button' class='btn btn-secondary fw-bold'  onclick='showModalAnali($infos_registro[7])' title='Analisar' disabled>
+                    <i class='bi bi-clipboard-data bold'></i>
+                </button>
+            </td>";
+
         }
 
         echo "</tr>";

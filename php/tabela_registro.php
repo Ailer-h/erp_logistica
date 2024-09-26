@@ -33,7 +33,7 @@ function getIdsNotas()
     <title>Registros</title>
 </head>
 
-<body class="bg-body-tertiary h-100">
+<body class="bg-body-tertiary h-100" id="body">
     <nav class="navbar navbar-expand-lg border-bottom bg-body-secondary">
         <div class="container-fluid">
             <a class="navbar-brand" href="dashboard.php">ERP Logistico</a>
@@ -104,7 +104,7 @@ function getIdsNotas()
         </table>
     </div>
 
-    <!-- Modal do CRUD -->
+    <!-- Modal para confirmar que chegou -->
     <div class="modal fade" id="modal_confirm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -122,6 +122,35 @@ function getIdsNotas()
             </div>
         </div>
     </div>
+    <!-- Modal de analise -->
+    <div class="modal fade" id="modal_anali" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Analisar registro</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="form_anali">
+                    <div class="modal-body" id="modalAnali_body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger" onclick="returnOrder()">Devolver</button>
+                        <button type="submit" class="btn btn-success">Mandar para estoque</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="toast align-items-center text-bg-danger border-0 position-absolute top-0 end-0 m-4" role="alert" aria-live="assertive" id="alert-senha" aria-atomic="true" d-block" data-bs-delay='4000' data-bs-autohide="true">
+      <div class="d-flex">
+        <div class="toast-body fw-bold">
+        Quantidade recebida não pode exceder quantidade pedida.
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+    </div>
+    <!-- Aviso de quantidade recebida invalida -->
+    
 
     <footer class="bg-body-tertiary text-center text-lg-start">
         <div class="text-center p-2" style="background-color: rgba(0, 0, 0, 0.05); font-size: .75em;">
