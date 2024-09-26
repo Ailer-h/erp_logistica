@@ -1,15 +1,14 @@
 <?php
-session_start();
 
-
+    session_start();
     include "mysqlconecta.php";
 
     $id = $_POST["id"];
     $id_empresa = $_SESSION['id_empresa'];
 
-    $infos_nota = mysqli_fetch_array(mysqli_query($conexao, "SELECT produto_nota, qtd_produto,  estado_nota FROM nota nt, estoque est WHERE  id_nota = '$id' AND est.id_empresa = $id_empresa"));
+    $infos_nota = mysqli_fetch_array(mysqli_query($conexao, "SELECT produto_nota, qtd_produto, estado_nota FROM nota nt, estoque est WHERE id_nota = '$id' AND est.id_empresa = $id_empresa"));
 
-    $nameProd = mysqli_fetch_array(mysqli_query($conexao, "SELECT nome_produto FROM estoque WHERE id_empresa = $id_empresa AND id_materiaPrima = $infos_nota[0]"))[0];
+    $nameProd = mysqli_fetch_array(mysqli_query($conexao, "SELECT nome_produto FROM estoque WHERE id_materiaPrima = $infos_nota[0]"))[0];
 
 
         echo "<div class='row'>
