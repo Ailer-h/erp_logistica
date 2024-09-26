@@ -24,6 +24,33 @@ Array.from(forms).forEach(form => {
     form.classList.add('was-validated')
 }, false)});
 
+function getStatusFilter(){
+
+    let estado = document.getElementById('estado').value;
+
+    if(estado.length > 0 && estado != "todos"){
+        return ` and rg.estado_registro = '${estado}'`;
+        
+    }
+
+    return "";
+
+}
+
+function getDateFilter(){
+    
+    let data_filtro = document.getElementById('filter-date').value;
+    
+    if(data_filtro.length == 10){
+        data_filtro = data_filtro.split('/').reverse().join('-');
+        return ` and nt.data_nota = '${data_filtro}'`;
+
+    }
+
+    return ""
+
+}
+
 function table(searchbar_id){
 
     let search = document.getElementById(searchbar_id).value;
@@ -32,7 +59,8 @@ function table(searchbar_id){
         url: "utilities/consultar_registros.php",
         method: "post",
         data: {
-            search: search
+            search: search,
+            filter: getDateFilter() + getStatusFilter()
         },
         success: function(data){
             $('#table').html(data)
@@ -86,7 +114,7 @@ function showModalConfirm(id_regis){
         data:{
 
             id: id_regis,
-            acao: " "
+            acao: ""
 
         },
         // Quando der certo retorna um valor

@@ -71,8 +71,7 @@ function getNamesEstoque()
                     aria-label="default input example" maxlength="10" oninput="table('searchbar')">
             </div>
             <div class="col">
-                <select class="form-select" id='estado' aria-label="Default select example"
-                    oninput="table('searchbar')">
+                <select class="form-select" id='estado' aria-label="Default select example"oninput="table('searchbar')">
                     <option value="todos" selected>Todos os estados</option>
                     <option value="Requisitada">Requisitado</option>
                     <option value="Atendida">Atendida</option>
