@@ -9,6 +9,7 @@ include "utilities/verifySession.php";
 
 <html lang="pt-br" data-bs-theme="dark" class="h-100">
 
+<link rel="shortcut icon" href="../images/armazem.ico" type="image/x-icon">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">

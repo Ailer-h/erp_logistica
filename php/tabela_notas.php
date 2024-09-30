@@ -26,6 +26,7 @@ function getNamesEstoque()
 <html lang="pt-br" data-bs-theme="dark" class="h-100">
 
 <head>
+    <link rel="shortcut icon" href="../images/armazem.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -191,7 +192,7 @@ function getNamesEstoque()
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-warning">Salvar</button>
+                        <button type="submit" class="btn btn-warning" id="salvarNota" disabled>Salvar</button>
                     </div>
                 </form>
             </div>

@@ -175,7 +175,15 @@ function change_input_sufix(id_materiaPrima){
             if(document.getElementById('max-nota').value > 0){
 
                 document.getElementById('qtd_requisitada').disabled = false;
-                
+                document.getElementById('salvarNota').disabled = false;
+
+            }else{
+
+                document.getElementById('qtd_requisitada').disabled = true;
+                document.getElementById('qtd_requisitada').value = "";
+                document.getElementById('salvarNota').disabled = true;
+
+
             }
         }
     });
