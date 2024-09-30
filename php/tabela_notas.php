@@ -28,9 +28,12 @@ function getNamesEstoque()
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -45,19 +48,20 @@ function getNamesEstoque()
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <a href="utilities/logout.php">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                        <path
+                            d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z" />
+                    </svg>
+                </a>
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a href="utilities/logout.php" class="nav-link active link-logout">Logout</a>
                     </li>
                 </ul>
             </div>
-            <a href="utilities/logout.php">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-                    <path
-                        d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z" />
-                </svg>
-            </a>
+
         </div>
     </nav>
 
@@ -71,7 +75,8 @@ function getNamesEstoque()
                     aria-label="default input example" maxlength="10" oninput="table('searchbar')">
             </div>
             <div class="col">
-                <select class="form-select" id='estado' aria-label="Default select example"oninput="table('searchbar')">
+                <select class="form-select" id='estado' aria-label="Default select example"
+                    oninput="table('searchbar')">
                     <option value="todos" selected>Todos os estados</option>
                     <option value="Requisitada">Requisitado</option>
                     <option value="Atendida">Atendida</option>
@@ -154,8 +159,9 @@ function getNamesEstoque()
                             </div>
                             <div class="col">
                                 <div class="input-group">
-                                    <input class="form-control" type="text" id="qtd_requisitada" oninput="int_js(this.value, this); limit_input(this.id)" disabled required>
-                                        
+                                    <input class="form-control" type="text" id="qtd_requisitada"
+                                        oninput="int_js(this.value, this); limit_input(this.id)" disabled required>
+
                                     <span class="input-group-text" id="span_unidade_medida">
                                         ...
                                     </span>

@@ -7,6 +7,7 @@ include "mysqlconecta.php";
 $id = $_POST['id'];
 $id_empresa = $_SESSION['id_empresa'];
 
+date_default_timezone_set('America/Sao_Paulo');
 $qtd_rec = $_POST['qtd_rec'];
 $estado = $_POST['estado'];
 $data = date("Y-m-d");
@@ -26,7 +27,7 @@ if ($estado == 'Em estoque') {
 
 } else {
 
-    mysqli_query($conexao, "UPDATE registro SET estado_registro = '$estado' WHERE id_registro = $id AND id_empresa = $id_empresa");
+    mysqli_query($conexao, "UPDATE registro SET estado_registro = '$estado', qtd_recebida = $qtd_rec WHERE id_registro = $id AND id_empresa = $id_empresa");
     $id_nota = mysqli_fetch_array(mysqli_query($conexao, "SELECT nt.id_nota FROM nota nt, estoque est, registro rg WHERE rg.id_nota = nt.id_nota AND est.id_materiaPrima = nt.produto_nota AND rg.id_registro = $id;"))[0];
     mysqli_query($conexao, "update nota set estado_nota = 'Cancelada' where id_nota = $id_nota;");
 

@@ -1,6 +1,6 @@
 <?php
 
-    include "utilities/verifySession.php";
+include "utilities/verifySession.php";
 
 ?>
 <!DOCTYPE html>
@@ -25,23 +25,26 @@
     <nav class="navbar navbar-expand-lg border-bottom bg-body-secondary">
         <div class="container-fluid">
             <a class="navbar-brand" href="dashboard.php">ERP Logistico</a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <a href="utilities/logout.php">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                        <path
+                            d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z"
+                        />
+                    </svg>
+                </a>
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a href="utilities/logout.php" class="nav-link active link-logout">Logout</a>
                     </li>
                 </ul>
             </div>
-            <a href="utilities/logout.php">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-                    <path
-                        d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z" />
-                </svg>
-            </a>
         </div>
     </nav>
 
@@ -129,7 +132,8 @@
                                 </div>
                             </div>
                             <div class="col">
-                                <input class="form-control" type="text" id="qtd_padrao" oninput="int_js(this.value, this)" required>
+                                <input class="form-control" type="text" id="qtd_padrao"
+                                    oninput="int_js(this.value, this)" required>
                                 <div class="invalid-feedback">
                                     Insira uma quantidade.
                                 </div>

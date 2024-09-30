@@ -4,7 +4,7 @@
 
 if (!isset($_SESSION['id_empresa'])) {
 
-    header("Location:utilities/sessionEnd.php");
+    header("Location:utilities/logout.php");
 
 }
 

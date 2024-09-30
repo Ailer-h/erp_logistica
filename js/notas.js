@@ -172,7 +172,11 @@ function change_input_sufix(id_materiaPrima){
         },
         success: function(data){
             $('#span_unidade_medida').html(data);
-            document.getElementById('qtd_requisitada').disabled = false;
+            if(document.getElementById('max-nota').value > 0){
+
+                document.getElementById('qtd_requisitada').disabled = false;
+                
+            }
         }
     });
 }

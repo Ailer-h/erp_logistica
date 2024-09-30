@@ -222,13 +222,14 @@ document.getElementById('form_anali').addEventListener('submit', event =>{
 function returnOrder(){
 
     let id = document.getElementById('id_regis').value;
-
+    let qtd_rec = document.getElementById('qtd_chegada_regis_anali').value;
     $.ajax({
         
         url: "utilities/verificar_nota.php",
         method: 'post',
         data: {
             id: id,
+            qtd_rec: qtd_rec,
             estado : 'Devolvido'
         },
         success: function(){
