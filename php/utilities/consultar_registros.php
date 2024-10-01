@@ -9,7 +9,7 @@
     $filter = $_POST['filter'];
     $hoje = date("Y-m-d");
 
-    $query = mysqli_query($conexao, "select nt.id_nota, nt.qtd_produto, est.nome_produto, est.unidade_medida, rg.qtd_recebida, rg.estado_registro, rg.data_registro,rg.id_registro, nt.data_nota from registro rg, nota nt, estoque est where rg.id_empresa = $id and rg.id_nota = nt.id_nota and nt.produto_nota = est.id_materiaPrima and est.nome_produto like '%$search%' $filter order by rg.id_registro desc;");
+    $query = mysqli_query($conexao, "select nt.id_nota, nt.qtd_produto, est.nome_produto, est.unidade_medida, rg.qtd_recebida, rg.estado_registro, rg.data_registro,rg.id_registro, nt.data_nota from registro rg, nota nt, estoque est where rg.id_empresa = $id and rg.id_nota = nt.id_nota and nt.produto_nota = est.id_materiaPrima and rg.estado_registro != 'Em produção' and est.nome_produto like '%$search%' $filter order by rg.id_registro desc;");
 
     while($infos_registro = mysqli_fetch_array($query)){
 

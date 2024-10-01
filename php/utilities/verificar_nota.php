@@ -29,7 +29,7 @@ if ($estado == 'Em estoque') {
 
     mysqli_query($conexao, "UPDATE registro SET estado_registro = '$estado', qtd_recebida = $qtd_rec WHERE id_registro = $id AND id_empresa = $id_empresa");
     $id_nota = mysqli_fetch_array(mysqli_query($conexao, "SELECT nt.id_nota FROM nota nt, estoque est, registro rg WHERE rg.id_nota = nt.id_nota AND est.id_materiaPrima = nt.produto_nota AND rg.id_registro = $id;"))[0];
-    mysqli_query($conexao, "update nota set estado_nota = 'Cancelada' where id_nota = $id_nota;");
+    mysqli_query($conexao, "insert into registro(id_empresa, id_nota) values ('$id_empresa','$id_nota')");
 
 }
 
