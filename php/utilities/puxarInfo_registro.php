@@ -10,7 +10,7 @@ $acao = $_POST["acao"];
 
 $infos_estoque = mysqli_fetch_array(mysqli_query($conexao, "SELECT est.nome_produto, nt.qtd_produto, nt.data_nota, est.unidade_medida FROM nota nt, registro rg, estoque est WHERE nt.id_nota = rg.id_nota AND nt.produto_nota = est.id_materiaPrima AND rg.id_empresa = $id_empresa AND rg.id_registro = $id"));
 $date = implode("/", array_reverse(explode("-", $infos_estoque[2])));
-
+$unidade_medida = $infos_estoque[3] == "unidades" ? "uni." : $infos_estoque[3];
 
 if ($acao == "Em analise") {
 
@@ -43,7 +43,7 @@ if ($acao == "Em analise") {
         <div class='col'>
             <div class='input-group'>
                 <input class='form-control' type='text' id='qtd_pedida_regis_anali' value='$infos_estoque[1] 'oninput='int_js(this.value, this)' disabled>
-                <span class='input-group-text' id='span_unidade_medida'>$infos_estoque[3]</span>
+                <span class='input-group-text' id='span_unidade_medida'>$unidade_medida</span>
             </div>
             <div class='invalid-feedback'>
                 Insira uma quantidade.
@@ -65,8 +65,8 @@ if ($acao == "Em analise") {
     <div class='row'>
         <div class='col'>
             <div class='input-group'>
-                <input class='form-control' type='text' id='qtd_chegada_regis_anali' oninput='int_js(this.value, this)' required>
-                <span class='input-group-text' id='span_unidade_medida'>$infos_estoque[3]</span>
+                <input class='form-control' type='text' id='qtd_chegada_regis_anali' oninput='int_js(this.value, this); limit' required>
+                <span class='input-group-text' id='span_unidade_medida'>$unidade_medida</span>
             </div>
         </div>
     </div>
