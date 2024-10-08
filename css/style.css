@@ -34,7 +34,7 @@ i.bold{
 }
 
 .table-container{
-    max-height: 35em;
+    max-height: 80dvh;
     overflow-y: scroll;
 }
 
