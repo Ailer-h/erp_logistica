@@ -42,12 +42,12 @@ CREATE TABLE `empresa` (
 
 INSERT INTO `empresa` (`id_empresa`, `nome_empresa`, `email_empresa`, `senha_empresa`) VALUES
 (1, 'Admin', 'adm@adm.com', 'hm_acesso123');
-(2, 'Admin', 'camisas@empresa.com', 'camiseta_acesso');
-(3, 'Admin', 'jeans@empresa.com', 'jeans_acesso');
-(4, 'Admin', 'pacoca@empresa.com', 'pacoca_acesso');
-(5, 'Admin', 'macarrao@empresa.com', 'macarrao_acesso');
-(6, 'Admin', 'tenis@empresa.com', 'tenis_acesso');
-(7, 'Admin', 'brigadeiro@empresa.com', 'brigadeiro_acesso');
+(2, 'Camisetas', 'camisas@empresa.com', 'camiseta_acesso');
+(3, 'Jeans', 'jeans@empresa.com', 'jeans_acesso');
+(4, 'Paçoca', 'pacoca@empresa.com', 'pacoca_acesso');
+(5, 'Macarrão', 'macarrao@empresa.com', 'macarrao_acesso');
+(6, 'Tenis', 'tenis@empresa.com', 'tenis_acesso');
+(7, 'Brigadeiro', 'brigadeiro@empresa.com', 'brigadeiro_acesso');
 
 -- --------------------------------------------------------
 
