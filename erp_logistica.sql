@@ -41,7 +41,13 @@ CREATE TABLE `empresa` (
 --
 
 INSERT INTO `empresa` (`id_empresa`, `nome_empresa`, `email_empresa`, `senha_empresa`) VALUES
-(1, 'Admin', 'adm@adm.com', 'adm123');
+(1, 'Admin', 'adm@adm.com', 'hm_acesso123');
+(2, 'Admin', 'camisas@empresa.com', 'camiseta_acesso');
+(3, 'Admin', 'jeans@empresa.com', 'jeans_acesso');
+(4, 'Admin', 'pacoca@empresa.com', 'pacoca_acesso');
+(5, 'Admin', 'macarrao@empresa.com', 'macarrao_acesso');
+(6, 'Admin', 'tenis@empresa.com', 'tenis_acesso');
+(7, 'Admin', 'brigadeiro@empresa.com', 'brigadeiro_acesso');
 
 -- --------------------------------------------------------
 
@@ -58,15 +64,6 @@ CREATE TABLE `estoque` (
   `unidade_medida` varchar(10) NOT NULL,
   `estado` varchar(10) NOT NULL DEFAULT 'em_uso'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `estoque`
---
-
-INSERT INTO `estoque` (`id_materiaPrima`, `id_empresa`, `nome_produto`, `qtd_padrao`, `qtd_estoque`, `unidade_medida`, `estado`) VALUES
-(1, 1, 'Farinha de Trigo', 10, 4, 'kg', 'em_uso'),
-(2, 1, 'Fermento', 5, 5, 'kg', 'em_uso'),
-(3, 1, 'Sal', 15, 2, 'kg', 'em_uso');
 
 -- --------------------------------------------------------
 
@@ -139,19 +136,19 @@ ALTER TABLE `registro`
 -- AUTO_INCREMENT for table `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `id_empresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_empresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `estoque`
 --
 ALTER TABLE `estoque`
-  MODIFY `id_materiaPrima` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_materiaPrima` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `nota`
 --
 ALTER TABLE `nota`
-  MODIFY `id_nota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_nota` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `registro`
